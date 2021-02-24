@@ -1,0 +1,100 @@
+<p>register works!</p>
+
+<div class="form-group" >
+    <table class="table">
+    
+        <tbody>
+          <tr>
+            <th scope="row">First_Name:</th>
+            <td><input type="text"  [(ngModel)]="register.First_Name" >              
+   
+            </td>            
+          </tr>
+          <tr>
+            <th scope="row">Last_Name:</th>
+            <td><input type="text"  [(ngModel)]="register.Last_Name"  >             
+             
+            </td>            
+          </tr>
+          <tr>
+            <th scope="row">Password:</th>
+            <td><input type="text"  [(ngModel)]="register.Password"  >            
+             
+            </td>            
+          </tr>
+          <tr>
+            <th scope="row">Confirm Password:</th>
+            <td><input type="text"  [(ngModel)]="register.Confirm_Password"  >            
+             
+            </td>            
+          </tr>
+          <tr>
+            <th scope="row">Age:</th>
+            <td><input type="text"  [(ngModel)]="register.Age"  >            
+             
+            </td>            
+          </tr>
+          <tr>
+            <th scope="row">Gender:</th>
+            <td>
+                <input type="radio" name="gender" value="Male"  [(ngModel)]="register.Gender" > Male<br>
+  <input type="radio" name="gender" value="Female"  [(ngModel)]="register.Gender" > Female<br>
+  <input type="radio" name="gender" value="other"  [(ngModel)]="register.Gender" > Other          
+             
+            </td>            
+          </tr>
+          <tr>
+            <th scope="row">DOB:</th>
+            <td><input type="date"  [(ngModel)]="register.DOB"  >            
+             
+            </td>            
+          </tr>
+          <tr>
+            <th scope="row">EmailID:</th>
+            <td><input type="text"  [(ngModel)]="register.EmailID"  >            
+             
+            </td>            
+          </tr>
+          <tr>
+            <th scope="row">Mobile Number:</th>
+            <td><input type="text"  [(ngModel)]="register.mobile_number"  >            
+             
+            </td>            
+          </tr>
+          <tr>
+            <th scope="row">Address:</th>
+            <td><input type="textarea"  [(ngModel)]="register.Address"  >            
+             
+            </td>            
+          </tr>
+          <tr>
+            <th scope="row">City:</th>
+            <td><input type="text"  [(ngModel)]="register.City"  >            
+             
+            </td>            
+          </tr>
+          <tr>
+            <th scope="row">State:</th>
+            <td><input type="text"  [(ngModel)]="register.State"  >            
+             
+            </td>            
+          </tr>
+          <tr>
+            <th scope="row">Pincode:</th>
+            <td><input type="text"  [(ngModel)]="register.Pincode"  >            
+             
+            </td>            
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td><button type="button" class="btn btn-primary" (click)=" Register()">Register </button>            
+             
+            </td>            
+          </tr>        
+      
+  
+          
+        </tbody>
+      </table>
+      
+</div>
