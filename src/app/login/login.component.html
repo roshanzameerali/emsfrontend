@@ -1,1 +1,32 @@
 <p>login works!</p>
+
+<div class="form-group">
+    <table class="table">
+    
+        <tbody>
+          <tr>
+            <th scope="row">Employee ID</th>
+            <td><input type="text"  [(ngModel)]="Employee_id" >              
+   
+            </td>            
+          </tr>
+          <tr>
+            <th scope="row">Passsword</th>
+            <td><input type="text"  [(ngModel)]="Password"  >             
+             
+            </td>            
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td><button type="button" class="btn btn-primary" (click)=" Login()">Login </button>            
+             
+            </td>            
+          </tr> 
+        </tbody>
+    </table>
+</div>
+
+<!-- <div class="panel-body" *ngFor="let userpro of Role">
+    {{userpro.Role}}
+</div> -->
+
