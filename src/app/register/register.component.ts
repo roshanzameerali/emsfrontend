@@ -23,6 +23,8 @@ export class RegisterComponent implements OnInit {
     
     this.registerService.RegisterTheDetails(this.register).subscribe(
      user=>{console.log("Called")} )
+
+     
     
   }
 

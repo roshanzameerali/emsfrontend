@@ -6,13 +6,13 @@
         <tbody>
           <tr>
             <th scope="row">Employee ID</th>
-            <td><input type="text"  [(ngModel)]="Employee_id" >              
-   
+            <td><input type="text"  [(ngModel)]="login.Employee_Id" >              
+   {{login.Employee_Id}}
             </td>            
           </tr>
           <tr>
-            <th scope="row">Passsword</th>
-            <td><input type="text"  [(ngModel)]="Password"  >             
+            <th scope="row">Password</th>
+            <td><input type="password"  [(ngModel)]="login.Password"  >             
              
             </td>            
           </tr>
@@ -25,7 +25,7 @@
         </tbody>
     </table>
 </div>
-
+<p>{{Role}}</p>
 <!-- <div class="panel-body" *ngFor="let userpro of Role">
     {{userpro.Role}}
 </div> -->

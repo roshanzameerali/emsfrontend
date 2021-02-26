@@ -8,11 +8,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RegisterService } from './services/register.service';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from './services/login.service';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { AdminDashboardService } from './services/admindashboard.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    AdmindashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,7 @@ import { LoginService } from './services/login.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserProfileService, RegisterService,LoginService],
+  providers: [UserProfileService, RegisterService,LoginService,AdminDashboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

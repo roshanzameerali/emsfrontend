@@ -7,7 +7,7 @@ import { UserProfileService } from '../services/userprofile.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  id:number=1003;
+  id:any=localStorage.getItem('Employee_id');
   userprofile:any;
   constructor(private userProfileService:UserProfileService) {
     this.userProfileService.getUserProfileFromApi(this.id).subscribe(
