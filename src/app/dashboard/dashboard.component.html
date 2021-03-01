@@ -63,14 +63,7 @@
                   <th scope="row">Pincode</th>
                   <td>{{userpro.Pincode}}</td>               
                 </tr>
-                <tr>
-                  <th scope="row">Department Name:</th>
-                  <td>{{userpro.Department_name}}</td>               
-                </tr>
-                <tr>
-                  <th scope="row">Unit Name:</th>
-                  <td> {{userpro.Unit_name}}</td>               
-                </tr>
+               
               </tbody>
             </table>
           
@@ -80,49 +73,74 @@
     </div>
     
   </div>
-    <!-- <div class="form-group" *ngIf="formGroup">
-      <mat-divider></mat-divider>
+  <div class="card-body" *ngFor="let departmentandunit of departmentandunitnames">
+    <table class="table">              
+      <tbody>
+        <tr>
+          <th scope="row">Department Name:</th>
+          <td>{{departmentandunit.Department_Name}}</td>               
+        </tr>
+        <tr>
+          <th scope="row">Unit Name:</th>
+          <td> {{departmentandunit.Unit_Name}}</td>               
+        </tr>
+       
+      </tbody>
+    </table>
+    
+  </div>
+  <button type="button" class="btn btn-primary" (click)="ShowFormGroup()">Edit Details</button>
+    <div class="form-group" *ngIf="formGroup">
+    
       <br/>
       <table class="table">
       
         <tbody>
           <tr>
             <th scope="row">Edit EmailId:</th>
-            <td><input type="text" [(ngModel)]="tblcustomer.email_id" >
-              {{tblcustomer.email_id}} {{tblcustomer.email_id}}
+            <td><input type="text" [(ngModel)]="employeedetails.Email_id" >
+             
               <button type="button" class="btn btn-primary" (click)="EditEmailDetails()">Edit </button>
             </td>
             
           </tr>
           <tr>
             <th scope="row">Edit Mobile Number:</th>
-            <td> <input type="text" [(ngModel)]="tblcustomer.mobile_number">
-              {{tblcustomer.mobile_number}}
+            <td><input type="text" [(ngModel)]="employeedetails.mobile_number" >
+             
               <button type="button" class="btn btn-primary" (click)="EditMobileNumberDetails()">Edit </button>
             </td>
             
           </tr>
           <tr>
-            <th scope="row">Edit Residential Address:</th>
-            <td><input type="text" [(ngModel)]="tblcustomer.Residential_address">
-              {{tblcustomer.mobile_number}}
-              <button type="button" class="btn btn-primary" (click)="EditResidentialAddressDetails()">Edit</button>
+            <th scope="row">Edit Address:</th>
+            <td><input type="text" [(ngModel)]="employeedetails.Address" >
+              
+              <button type="button" class="btn btn-primary" (click)="EditAddressDetails()">Edit </button>
             </td>
             
           </tr>
           <tr>
-            <th scope="row">Edit Permanent Address:</th>
-            <td><input type="text" [(ngModel)]="tblcustomer.permanent_address">
-              {{tblcustomer.permanent_address}}
-              <button type="button" class="btn btn-primary" (click)="EditPermanentAddressDetails()">Edit</button>
+            <th scope="row">Edit City:</th>
+            <td><input type="text" [(ngModel)]="employeedetails.City" >
+              
+              <button type="button" class="btn btn-primary" (click)="EditCityDetails()">Edit </button>
             </td>
             
           </tr>
           <tr>
-            <th scope="row">Edit Occupation:</th>
-            <td><input type="text" [(ngModel)]="tblcustomer.occupation_Type">
-              {{tblcustomer.permanent_address}}
-              <button type="button" class="btn btn-primary" (click)=" EditOccupationTypeDetails()">Edit </button>
+            <th scope="row">Edit State:</th>
+            <td><input type="text" [(ngModel)]="employeedetails.State" >
+            
+              <button type="button" class="btn btn-primary" (click)="EditStateDetails()">Edit </button>
+            </td>
+            
+          </tr>
+          <tr>
+            <th scope="row">Edit Pincode:</th>
+            <td><input type="text" [(ngModel)]="employeedetails.Pincode" >
+           
+              <button type="button" class="btn btn-primary" (click)="EditPincodeDetails()">Edit </button>
             </td>
             
           </tr>
@@ -133,7 +151,7 @@
     
      
       
-    </div> -->
+    </div>
   </div>
     
    

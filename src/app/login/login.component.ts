@@ -24,9 +24,9 @@ export class LoginComponent implements OnInit {
         this.Role = user,
         console.log(this.Role)
         this.Role.toString();
-        if(this.Role == null || this.Role == " ")
+        if(this.Role[0] == null || this.Role[0] == "")
         this.Role = "Invalid User" ;
-        if (this.Role[0] === "Admin")
+        else if (this.Role[0] === "Admin")
         {
           
           this.router.navigateByUrl('/admindashboard');

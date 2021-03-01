@@ -5,7 +5,8 @@ export class UserProfile{
     Age: number;
     Gender: string;
     DOB: string;
-    EmailID: string;
+    Email_id: string;
+    mobile_number:string;
     Address: string;
     City: string;
     State:string;
@@ -14,7 +15,7 @@ export class UserProfile{
     Unit_Name: string;
 
     constructor(Employee_Id:number=0,Name:string="",Role:string="",Age:number=0,
-    Gender:string="",DOB:string="",EmailID:string="",Address:string="",
+    Gender:string="",DOB:string="",Email_id:string="",mobile_number:string="",Address:string="",
     City:string="",State:string="",Pincode:number=0,Department_Name:string="",
     Unit_Name:string="") {
 
@@ -24,7 +25,8 @@ export class UserProfile{
         this.Age = Age;
         this.Gender = Gender;
         this.DOB = DOB;
-        this.EmailID = EmailID;
+        this.Email_id = Email_id;
+        this.mobile_number = mobile_number;
         this.Address = Address;
         this.City = City;
         this.State = State;
