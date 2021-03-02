@@ -9,7 +9,7 @@ import { RegisterService } from '../services/register.service';
 })
 export class RegisterComponent implements OnInit {
   register:Register;
-  
+  registerreturn:any;
   constructor(private registerService:RegisterService) { 
     this.register = new Register();
     
@@ -22,7 +22,9 @@ export class RegisterComponent implements OnInit {
    //   this.tblcustomer.email_id = this.userprofile[6];
     
     this.registerService.RegisterTheDetails(this.register).subscribe(
-     user=>{console.log("Called")} )
+     user=>{this.registerreturn = user,
+      console.log(this.registerreturn),
+       console.log("Called")} )
 
      
     

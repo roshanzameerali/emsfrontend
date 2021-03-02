@@ -45,59 +45,13 @@ export class DashboardComponent implements OnInit {
    }
 
 
-   EditEmailDetails()
+   EditDetails()
    {
-    this.userProfileService.UpdateEmailId(this.id,this.employeedetails).subscribe(
+    this.userProfileService.UpdateDetails(this.id,this.employeedetails).subscribe(
       user=>{
         console.log("Called");}
         ) 
     window.location.reload();
-   }
-
-   EditMobileNumberDetails()
-   {
-    this.userProfileService.UpdateMobileNumber(this.id,this.employeedetails).subscribe(
-      user=>{
-        console.log("Called");}
-        )
-        window.location.reload(); 
-   }
-
-   EditAddressDetails()
-   {
-    this.userProfileService.UpdateAddress(this.id,this.employeedetails).subscribe(
-      user=>{
-        console.log("Called");}
-        ) 
-
-        window.location.reload();
-   }
-
-   EditCityDetails()
-   {
-    this.userProfileService.UpdateCity(this.id,this.employeedetails).subscribe(
-      user=>{
-        console.log("Called");}
-        ) 
-        window.location.reload();
-   }
-
-   EditStateDetails()
-   {
-    this.userProfileService.UpdateState(this.id,this.employeedetails).subscribe(
-      user=>{
-        console.log("Called");}
-        ) 
-        window.location.reload();
-   }
-
-   EditPincodeDetails()
-   {
-    this.userProfileService.UpdatePincode(this.id,this.employeedetails).subscribe(
-      user=>{
-        console.log("Called");}
-        ) 
-        window.location.reload();
    }
 
   ngOnInit(): void {
