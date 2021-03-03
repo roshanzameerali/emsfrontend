@@ -1,0 +1,84 @@
+<!-- First name field -->
+<label>First Name:</label>
+<input id="firstname" name="firstname" class="form-control"
+      required minlength="2"
+      [(ngModel)]="register.First_Name" #fname="ngModel" >
+        {{register.First_Name}}
+    <div *ngIf="fname.invalid && (fname.dirty || fname.touched)"
+        class="alert alert-danger">
+
+        <div *ngIf="fname.errors.required">
+            Name is required.
+        </div>
+        <div *ngIf="fname.errors.minlength">
+            Name must be at least 2 characters long.
+        </div>
+
+    </div>
+    <!-- LAst name field  -->
+
+    <label>Last Name:</label>
+<input id="lastname" name="lastname" class="form-control"
+      required minlength="2" 
+      [(ngModel)]="register.Last_Name" #lname="ngModel" >
+{{register.Last_Name}}
+    <div *ngIf="lname.invalid && (lname.dirty || lname.touched)"
+        class="alert alert-danger">
+
+        <div *ngIf="lname.errors.required">
+            Name is required.
+        </div>
+        <div *ngIf="lname.errors.minlength">
+            Last Name must be at least 2 characters long.
+        </div>
+
+    </div>
+
+    <!-- Password Field -->
+<label>Password:</label>
+    <div class="form-group">
+        <input type="password" [(ngModel)]="register.Password" name="password" placeholder=" Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" class="form-control" required #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+        {{register.Password}}
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+          <div *ngIf="password.errors.required"> Password is required. </div>
+          <div *ngIf="password.errors.pattern"> Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.</div>
+        </div>
+       </div>
+ <label>Confirm Password</label>      
+       <div class="form-group">
+        <input type="password" [(ngModel)]="register.Confirm_Password" name="confirmpassword" placeholder="Password & Confirm Password should match." class="form-control" required #confirmpassword="ngModel" pattern="{{ password.value }}" />
+        <div *ngIf=" confirmpassword.invalid && (password.dirty || confirmpassword.touched)" class="alert alert-danger">
+          <div *ngIf="confirmpassword.errors.required"> Confirm password is required. </div>
+          <div *ngIf="confirmpassword.errors.pattern"> Password & Confirm Password does not match.</div>
+        </div>
+       </div>
+
+       <!-- Age Field-->
+
+       <label>Age</label>
+       <input id="age" name="age" class="form-control"
+             
+             [(ngModel)]="register.Age" #age="ngModel" min="18" max="56">
+       {{register.Age}}
+           <div *ngIf="age.invalid && (age.dirty || age.touched)"
+               class="alert alert-danger">
+       
+               <div *ngIf="age.errors.required">
+                   Age is required.
+               </div>
+               <div *ngIf="age.errors.min">
+                Age is required.
+            </div>
+       
+           </div>
+
+        <!--GEdner-->
+
+        <input type="radio" name="gender" value="Male"  [(ngModel)]="register.Gender" > Male<br>
+        <input type="radio" name="gender" value="Female"  [(ngModel)]="register.Gender" > Female<br>
+        <input type="radio" name="gender" value="other"  [(ngModel)]="register.Gender" > Other     
+
+
+        <!---DOB-->
+
+        <input type="date"  [(ngModel)]="register.DOB"  >  

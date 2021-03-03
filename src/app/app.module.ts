@@ -10,12 +10,16 @@ import { FormsModule } from '@angular/forms';
 import { LoginService } from './services/login.service';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { AdminDashboardService } from './services/admindashboard.service';
+import { TempregComponent } from './tempreg/tempreg.component';
+//import { MustMatchDirective } from './_helpers/must-match.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    AdmindashboardComponent
+    AdmindashboardComponent,
+    TempregComponent,
+    //MustMatchDirective
   ],
   imports: [
     BrowserModule,

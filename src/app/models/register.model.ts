@@ -17,7 +17,7 @@ export class Register{
    
 
     constructor(Employee_Id:number=0,First_Name:string="",Last_Name:string="",Password:string="",Confirm_Password:string="",
-    Age:number=0,Gender:string="",Role:string="NotAssigned",DOB:string="",Email_id:string="",mobile_number: string="",Address:string="",
+    Age:number=18,Gender:string="",Role:string="NotAssigned",DOB:string="",Email_id:string="",mobile_number: string="",Address:string="",
     City:string="",State:string="",Pincode:number=0) {
 
         this.Employee_Id = Employee_Id;
