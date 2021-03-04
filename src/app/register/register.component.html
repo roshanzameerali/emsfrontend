@@ -1,100 +1,169 @@
-<p>register works!</p>
+<!-- First name field -->
+<div class="form-group">
+  <form novalidate
+    (ngSubmit)="save(signupForm)"
+    #signupForm="ngForm">
+<label>First Name:</label>
+<input  name="firstname" class="form-control"
+    required minlength="2" 
+    [(ngModel)]="register.First_Name" #fname="ngModel" required >
+      {{register.First_Name}}
+  <div *ngIf="fname.invalid && (fname.dirty || fname.touched)"
+      class="alert alert-danger">
 
-<div class="form-group" >
-    <table class="table">
-    
-        <tbody>
-          <tr>
-            <th scope="row">First_Name:</th>
-            <td><input type="text"  [(ngModel)]="register.First_Name" ngModel minlength="4">              
-              
-            </td>            
-          </tr>
-          <tr>
-            <th scope="row">Last_Name:</th>
-            <td><input type="text"  [(ngModel)]="register.Last_Name"  >             
-             
-            </td>            
-          </tr>
-          <tr>
-            <th scope="row">Password:</th>
-            <td><input type="text"  [(ngModel)]="register.Password"  >            
-             
-            </td>            
-          </tr>
-          <tr>
-            <th scope="row">Confirm Password:</th>
-            <td><input type="text"  [(ngModel)]="register.Confirm_Password"  >            
-             
-            </td>            
-          </tr>
-          <tr>
-            <th scope="row">Age:</th>
-            <td><input type="text"  [(ngModel)]="register.Age"  >            
-             
-            </td>            
-          </tr>
-          <tr>
-            <th scope="row">Gender:</th>
-            <td>
-                <input type="radio" name="gender" value="Male"  [(ngModel)]="register.Gender" > Male<br>
-  <input type="radio" name="gender" value="Female"  [(ngModel)]="register.Gender" > Female<br>
-  <input type="radio" name="gender" value="other"  [(ngModel)]="register.Gender" > Other          
-             
-            </td>            
-          </tr>
-          <tr>
-            <th scope="row">DOB:</th>
-            <td><input type="date"  [(ngModel)]="register.DOB"  >            
-             
-            </td>            
-          </tr>
-          <tr>
-            <th scope="row">EmailID:</th>
-            <td><input type="text"  [(ngModel)]="register.Email_id"  >            
-             
-            </td>            
-          </tr>
-          <tr>
-            <th scope="row">Mobile Number:</th>
-            <td><input type="text"  [(ngModel)]="register.mobile_number"  >            
-             
-            </td>            
-          </tr>
-          <tr>
-            <th scope="row">Address:</th>
-            <td><input type="textarea"  [(ngModel)]="register.Address"  >            
-             
-            </td>            
-          </tr>
-          <tr>
-            <th scope="row">City:</th>
-            <td><input type="text"  [(ngModel)]="register.City"  >            
-             
-            </td>            
-          </tr>
-          <tr>
-            <th scope="row">State:</th>
-            <td><input type="text"  [(ngModel)]="register.State"  >            
-             
-            </td>            
-          </tr>
-          <tr>
-            <th scope="row">Pincode:</th>
-            <td><input type="text"  [(ngModel)]="register.Pincode"  >            
-             
-            </td>            
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td><button type="button" class="btn btn-primary" (click)=" Register()">Register </button>            
-             
-            </td>            
-          </tr>        
+      <div *ngIf="fname.errors.required">
+          Name is required.
+      </div>
+      <div *ngIf="fname.errors.minlength">
+          Name must be at least 2 characters long.
+      </div>
+
+  </div>
+  <!-- LAst name field  -->
+
+  <label>Last Name:</label>
+<input name="lastname" class="form-control"
+    required minlength="2" 
+    [(ngModel)]="register.Last_Name" #lname="ngModel" >
+{{register.Last_Name}}
+  <div *ngIf="lname.invalid && (lname.dirty || lname.touched)"
+      class="alert alert-danger">
+
+      <div *ngIf="lname.errors.required">
+          Name is required.
+      </div>
+      <div *ngIf="lname.errors.minlength">
+          Last Name must be at least 2 characters long.
+      </div>
+
+  </div>
+
+  <!-- Password Field -->
+<label>Password:</label>
+  <div class="form-group">
+      <input type="password" [(ngModel)]="register.Password" name="password" placeholder=" Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" class="form-control" required #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+      {{register.Password}}
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+        <div *ngIf="password.errors.required"> Password is required. </div>
+        <div *ngIf="password.errors.pattern"> Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.</div>
+      </div>
+     </div>
+<label>Confirm Password</label>      
+     <div class="form-group">
+      <input type="password" [(ngModel)]="register.Confirm_Password" name="confirmpassword" placeholder="Password & Confirm Password should match." class="form-control" required #confirmpassword="ngModel" pattern="{{ password.value }}" />
+      <div *ngIf=" confirmpassword.invalid && (password.dirty || confirmpassword.touched)" class="alert alert-danger">
+        <div *ngIf="confirmpassword.errors.required"> Confirm password is required. </div>
+        <div *ngIf="confirmpassword.errors.pattern"> Password & Confirm Password does not match.</div>
+      </div>
+     </div>
+
+     <!-- Age Field-->
+
+     <label>Age</label>
+     <input id="age" name="age" class="form-control"
+           
+           [(ngModel)]="register.Age" #age="ngModel" min="18" max="56">
+     {{register.Age}}
+         <div *ngIf="age.invalid && (age.dirty || age.touched)"
+             class="alert alert-danger">
+     
+             <div *ngIf="age.errors.required">
+                 Age is required.
+             </div>
+             <div *ngIf="age.errors.min">
+              Age is required.
+          </div>
+     
+         </div>
+
+      <!--GEdner-->
+
+      <input type="radio" name="gender" value="Male"  [(ngModel)]="register.Gender" > Male<br>
+      <input type="radio" name="gender" value="Female"  [(ngModel)]="register.Gender" > Female<br>
+      <input type="radio" name="gender" value="other"  [(ngModel)]="register.Gender" > Other     
+
+
+      <!---DOB-->
+
+      <input type="date" name="date" [(ngModel)]="register.DOB"  >  
+
+      <!----EmailID Field-->
+
+      <label>Email ID</label>      
+      <div class="form-group">
+       <input type="emailid" [(ngModel)]="register.Email_id" name="emailid" placeholder="" class="form-control" required #emailid="ngModel" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" />
+       {{register.Email_id}}
+       <div *ngIf=" emailid.invalid && (emailid.dirty || emailid.touched)" class="alert alert-danger">
+         <div *ngIf="emailid.errors.required"> Emailid is required. </div>
+         <div *ngIf="emailid.errors.pattern">Enter EmailId in correct format</div>
+       </div>
+      </div>
+
+      <!----Mobile Number-->
+
+      <label>Mobile Number</label>      
+      <div class="form-group">
+       <input type="mobilenumber" [(ngModel)]="register.mobile_number" name="mobilenumber" placeholder="" class="form-control" required #mobilenumber="ngModel" pattern="[6789][0-9]{9}" />
+       {{register.mobile_number}}
+       <div *ngIf=" mobilenumber.invalid && (mobilenumber.dirty || mobilenumber.touched)" class="alert alert-danger">
+         <div *ngIf="mobilenumber.errors.required"> Mobile Number is required. </div>
+         <div *ngIf="mobilenumber.errors.pattern">Enter Mobile Number in correct format</div>
+       </div>
+      </div>
+
+      <!-- Address Field -->
+
+      <label>Address</label>      
+      <div class="form-group">
+       <input type="address" [(ngModel)]="register.Address" name="address" placeholder="" class="form-control" required #address="ngModel" pattern="^[A-Za-z0-9, -]*$" />
+       {{register.mobile_number}}
+       <div *ngIf=" address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+         <div *ngIf="address.errors.required"> Address is required. </div>
+         <div *ngIf="address.errors.pattern">Enter Address in correct format</div>
+       </div>
+      </div>
+
+      <!---City Field-->
+
+      <label>City</label>      
+      <div class="form-group">
+       <input type="city" [(ngModel)]="register.City" name="city" placeholder="" class="form-control" required #city="ngModel" pattern="^[A-Za-z]*$" />
+       {{register.mobile_number}}
+       <div *ngIf=" city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+         <div *ngIf="city.errors.required"> City is required. </div>
+         <div *ngIf="city.errors.pattern">Enter City in correct format</div>
+       </div>
+      </div>
+
+      <!-----State-->
+
+      <label>State</label>      
+      <div class="form-group">
+       <input type="state" [(ngModel)]="register.State" name="state" placeholder="" class="form-control" required #state="ngModel" pattern="^[A-Za-z]*$" />
+       {{register.State}}
+       <div *ngIf=" state.invalid && (state.dirty || state.touched)" class="alert alert-danger">
+         <div *ngIf="state.errors.required"> State is required. </div>
+         <div *ngIf="state.errors.pattern">Enter State in correct format</div>
+       </div>
+      </div>
+
+      <!------Pincode Field-->
+
+      <label>Pincode</label>      
+      <div class="form-group">
+       <input type="pincode" [(ngModel)]="register.Pincode" name="pincode" placeholder="" class="form-control" required #pincode="ngModel" pattern="^[0-9]*$" />
+       {{register.Pincode}}
+       <div *ngIf=" pincode.invalid && (pincode.dirty || pincode.touched)" class="alert alert-danger">
+         <div *ngIf="pincode.errors.required"> pincode is required. </div>
+         <div *ngIf="pincode.errors.pattern">Enter pincode in correct format</div>
+       </div>
+      </div>
+
       
-  
-          
-        </tbody>
-      </table>
-      
-</div>
+      <button type="submit" class="form-group"  [disabled]="!signupForm.valid" (click)= "Register()">Register </button> 
+      </form>
+  </div>
+
+  <div class="referenceiddisplay" *ngIf="referenceid">
+    <p>Your Employee Id is: <b>{{referenceid}}</b> &nbsp; Use this along with your password to login to the portal</p>
+  </div>
