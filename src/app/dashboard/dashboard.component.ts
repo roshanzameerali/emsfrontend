@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserProfile } from '../models/userprofile.model';
 import { UserProfileService } from '../services/userprofile.service';
+import {NgForm} from '@angular/forms';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -28,6 +30,11 @@ export class DashboardComponent implements OnInit {
         )  
 
    }
+
+   save(customerForm: NgForm) {
+
+    //console.log('Saved: ' + JSON.stringify(customerForm.value));
+  }
 
    ShowFormGroup()
    {

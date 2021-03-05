@@ -91,65 +91,86 @@
   </div>
   <button type="button" class="btn btn-primary" (click)="ShowFormGroup()">Edit Details</button>
     <div class="form-group" *ngIf="formGroup">
-    
-      <br/>
-      <table class="table">
-      
-        <tbody>
-          <tr>
-            <th scope="row">Edit EmailId:</th>
-            <td><input type="text" [(ngModel)]="employeedetails.Email_id" >
-             
-            </td>
-            
-          </tr>
-          <tr>
-            <th scope="row">Edit Mobile Number:</th>
-            <td><input type="text" [(ngModel)]="employeedetails.mobile_number" >
-             
-      
-            </td>
-            
-          </tr>
-          <tr>
-            <th scope="row">Edit Address:</th>
-            <td><input type="text" [(ngModel)]="employeedetails.Address" >
-              
-          
-            </td>
-            
-          </tr>
-          <tr>
-            <th scope="row">Edit City:</th>
-            <td><input type="text" [(ngModel)]="employeedetails.City" >
-              
-              
-            </td>
-            
-          </tr>
-          <tr>
-            <th scope="row">Edit State:</th>
-            <td><input type="text" [(ngModel)]="employeedetails.State" >
-            
-            
-            </td>
-            
-          </tr>
-          <tr>
-            <th scope="row">Edit Pincode:</th>
-            <td><input type="text" [(ngModel)]="employeedetails.Pincode" >
-           
-             
-            </td>
-            
-          </tr>
+     
+      <form novalidate
+      (ngSubmit)="save(signupForm)"
+      #signupForm="ngForm">
+ 
   
-          
-        </tbody>
-      </table>
-    
-      <button type="button" class="btn btn-primary" (click)="EditDetails()">Save </button>
-      
+        <!----EmailID Field-->
+  
+        <label>Email ID</label>      
+        <div class="form-group">
+         <input type="emailid" [(ngModel)]="employeedetails.Email_id" name="emailid" placeholder="" class="form-control" required #emailid="ngModel" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" />
+         {{employeedetails.Email_id}}
+         <div *ngIf=" emailid.invalid && (emailid.dirty || emailid.touched)" class="alert alert-danger">
+           <div *ngIf="emailid.errors.required"> Emailid is required. </div>
+           <div *ngIf="emailid.errors.pattern">Enter EmailId in correct format</div>
+         </div>
+        </div>
+  
+        <!----Mobile Number-->
+  
+        <label>Mobile Number</label>      
+        <div class="form-group">
+         <input type="mobilenumber" [(ngModel)]="employeedetails.mobile_number" name="mobilenumber" placeholder="" class="form-control" required #mobilenumber="ngModel" pattern="[6789][0-9]{9}" />
+         {{employeedetails.mobile_number}}
+         <div *ngIf=" mobilenumber.invalid && (mobilenumber.dirty || mobilenumber.touched)" class="alert alert-danger">
+           <div *ngIf="mobilenumber.errors.required"> Mobile Number is required. </div>
+           <div *ngIf="mobilenumber.errors.pattern">Enter Mobile Number in correct format</div>
+         </div>
+        </div>
+  
+        <!-- Address Field -->
+  
+        <label>Address</label>      
+        <div class="form-group">
+         <input type="address" [(ngModel)]="employeedetails.Address" name="address" placeholder="" class="form-control" required #address="ngModel" pattern="^[A-Za-z0-9, -]*$" />
+         {{employeedetails.mobile_number}}
+         <div *ngIf=" address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+           <div *ngIf="address.errors.required"> Address is required. </div>
+           <div *ngIf="address.errors.pattern">Enter Address in correct format</div>
+         </div>
+        </div>
+  
+        <!---City Field-->
+  
+        <label>City</label>      
+        <div class="form-group">
+         <input type="city" [(ngModel)]="employeedetails.City" name="city" placeholder="" class="form-control" required #city="ngModel" pattern="^[A-Za-z]*$" />
+         {{employeedetails.mobile_number}}
+         <div *ngIf=" city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+           <div *ngIf="city.errors.required"> City is required. </div>
+           <div *ngIf="city.errors.pattern">Enter City in correct format</div>
+         </div>
+        </div>
+  
+        <!-----State-->
+  
+        <label>State</label>      
+        <div class="form-group">
+         <input type="state" [(ngModel)]="employeedetails.State" name="state" placeholder="" class="form-control" required #state="ngModel" pattern="^[A-Za-z ]*$" />
+         {{employeedetails.State}}
+         <div *ngIf=" state.invalid && (state.dirty || state.touched)" class="alert alert-danger">
+           <div *ngIf="state.errors.required"> State is required. </div>
+           <div *ngIf="state.errors.pattern">Enter State in correct format</div>
+         </div>
+        </div>
+  
+        <!------Pincode Field-->
+  
+        <label>Pincode</label>      
+        <div class="form-group">
+         <input type="pincode" [(ngModel)]="employeedetails.Pincode" name="pincode" placeholder="" class="form-control" required #pincode="ngModel" pattern="^[0-9]*$" />
+         {{employeedetails.Pincode}}
+         <div *ngIf=" pincode.invalid && (pincode.dirty || pincode.touched)" class="alert alert-danger">
+           <div *ngIf="pincode.errors.required"> pincode is required. </div>
+           <div *ngIf="pincode.errors.pattern">Enter pincode in correct format</div>
+         </div>
+        </div>
+        
+        <button type="submit" class="form-group"  [disabled]="!signupForm.valid" (click)= "EditDetails()">Save </button> 
+        </form>
     </div>
   </div>
     

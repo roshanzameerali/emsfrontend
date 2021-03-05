@@ -11,6 +11,7 @@ import { LoginService } from './services/login.service';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { AdminDashboardService } from './services/admindashboard.service';
 import { TempregComponent } from './tempreg/tempreg.component';
+import { ViewdetailsbyadminComponent } from './viewdetailsbyadmin/viewdetailsbyadmin.component';
 //import { MustMatchDirective } from './_helpers/must-match.directive';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { TempregComponent } from './tempreg/tempreg.component';
     routingComponents,
     AdmindashboardComponent,
     TempregComponent,
+    ViewdetailsbyadminComponent,
     //MustMatchDirective
   ],
   imports: [

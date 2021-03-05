@@ -19,7 +19,17 @@ export class UserProfileService{
     public UpdateDetails(id:any,userprofile:UserProfile){
         return this.putHttp.put("http://localhost:60000/api/UpdateByEmployee/?id="+id,userprofile);
     }
+
+    public EditDetailsByAdmin(id:any,userprofile:UserProfile){
+        return this.putHttp.put("http://localhost:60000/EditDetailsByAdmin/EditRole/?id="+id,userprofile);
+    }
+
+    public GetAllDepartmentDetails(){
+        return this.getHttp.get("http://localhost:60000/GetDepartmentAndBusinessDetails/GetDepartmentDetails/");
+    }  
     
-     
+    public GetAllBusinessUnitDetails(){
+        return this.getHttp.get("http://localhost:60000/GetDepartmentAndBusinessDetails/GetBusinessUnitDetails/");
+    }
 
 }

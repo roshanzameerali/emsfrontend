@@ -3,39 +3,20 @@
 <!-- <div class="panel-body" *ngFor="let userpro of admindashboard_details">
   {{userpro.Employee_id}}
 </div> -->
-<div class="card-header">
-  Featured
-</div>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Employee_id</th>
-      <th scope="col">Name</th>
-      <th scope="col">Role</th>
-      <th scope="col">Department</th>
-      <th scope="col">Business Unit</th>
-      <th scope="col">View Details</th>
-      <th scope="col">Update</th>
-      <th scope="col">Delete</th>
-    </tr>
-  </thead>
-</table>
+
+
 
 <div class="employeelist" *ngFor="let userpro of admindashboard_details">
-  <table class="table">
-
-    <tbody>
-      <tr>
-        <th scope="row">{{userpro.Employee_id}}</th>
-        <td scope="row">{{userpro.First_Name}} {{userpro.Last_Name}}</td>
-        <td scope="row">{{userpro.Role}}</td>
-        <td>{{userpro.Department_Name}}</td>
-        <td>{{userpro.Unit_Name}}</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-      </tr>
-    
-    </tbody>
-  </table>
+  <div class="card">
+    <h3 class="card-header">Employee id: {{userpro.Employee_id}}</h3>
+    <div class="card-body">
+      <h3 class="card-title">{{userpro.First_Name}} {{userpro.Last_Name}}</h3>
+      <h4 class="card-text">Role: {{userpro.Role}} </h4>
+      
+      <button class="btn btn-primary" (click)="ShowViewDetails(userpro.Employee_id)">View Details</button>&nbsp;&nbsp;
+      <button class="btn btn-primary" (click)="ShowViewDetails(userpro.Employee_id)">Update Details</button>&nbsp;&nbsp;
+      <button class="btn btn-primary">Delete Employee</button>&nbsp;&nbsp;
+    </div>
+  </div>
 </div>
+
