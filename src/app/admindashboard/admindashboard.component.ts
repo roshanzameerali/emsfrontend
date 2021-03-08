@@ -35,6 +35,21 @@ export class AdmindashboardComponent implements OnInit {
       console.log(id);
   }
 
+  DeleteDetails(id:string)
+  { 
+      console.log(id);
+      this.adminDashboardService.DeleteDetails(id).subscribe(
+        user=>{this.admindashboard_details=user,
+          console.log(this.admindashboard_details);}
+          )  
+  }
+
+  // DeleteDetails(id:string)
+  // {
+  //   console.log(this.id);
+    
+  // }
+
   ngOnInit(): void {
   }
 

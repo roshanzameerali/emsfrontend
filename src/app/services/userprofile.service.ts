@@ -32,4 +32,6 @@ export class UserProfileService{
         return this.getHttp.get("http://localhost:60000/GetDepartmentAndBusinessDetails/GetBusinessUnitDetails/");
     }
 
+    
+
 }
