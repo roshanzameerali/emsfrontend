@@ -4,25 +4,23 @@ import { RegisterService } from '../services/register.service';
 import {NgForm} from '@angular/forms';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-tempreg',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent   implements OnInit {
   register:Register;
   registerreturn:any;
   referenceid:string;
   constructor(private registerService:RegisterService) { 
     this.register = new Register();
-    
+    this.register !== undefined;
   }
 
-  
   save(customerForm: NgForm) {
 
     //console.log('Saved: ' + JSON.stringify(customerForm.value));
   }
-
 
   Register()
   {
@@ -38,8 +36,8 @@ export class RegisterComponent implements OnInit {
     
   }
 
-
   ngOnInit(): void {
+    
   }
 
 }

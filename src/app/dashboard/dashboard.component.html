@@ -1,178 +1,180 @@
-<div class="panel-body" *ngFor="let userpro of userprofile">
-   {{userpro.Employee_id}}
-</div>
-
-<div class="card" style="width: 55rem;" >
-  
-    <div class="card-body" *ngFor="let userpro of userprofile">
-    <h1 class="card-title">Welcome {{userpro.First_name}}</h1>
-    <h3 class="card-text">Your UserProfile</h3>
-    
-    </div>
-    
-    <div class="panel panel-default" >
+ <div class="dashboard">
       <div class="panel-body" *ngFor="let userpro of userprofile">
-          <h1 class="welcome"></h1>
-          <h3 class="details">
-            <table class="table">
-              
-              <tbody>
-                <tr>
-                  <th scope="row">Employee Id:</th>
-                  <td> {{userpro.Employee_id}} </td> 
-                               
-                </tr>
-                <tr>
-                  <th scope="row">Name:</th>
-                  <td>{{userpro.First_Name}} {{userpro.Last_Name}}</td>               
-                </tr>
-               
-                <tr>
-                  <th scope="row">Role: </th>
-                  <td> {{userpro.Role}}</td>               
-                </tr>
-                <tr>
-                    <th scope="row">Age: </th>
-                    <td> {{userpro.Age}}</td>               
-                  </tr>
-                  <tr>
-                    <th scope="row">Gender: </th>
-                    <td> {{userpro.Gender}}</td>               
-                  </tr>
-                  <tr>
-                    <th scope="row">Date Of Birth: </th>
-                    <td> {{userpro.DOB | date}}</td>               
-                  </tr>
-                <tr>
-                  <th scope="row">Email id:</th>
-                  <td>{{userpro.Email_id}}</td>               
-                </tr>
-                <tr>
-                  <th scope="row">Address:</th>
-                  <td>{{userpro.Address}}</td>               
-                </tr>
-                <tr>
-                  <th scope="row">City:</th>
-                  <td>{{userpro.City}}</td>               
-                </tr>
-                <tr>
-                  <th scope="row">State: </th>
-                  <td>{{userpro.State}}</td>               
-                </tr>
-                <tr>
-                  <th scope="row">Pincode</th>
-                  <td>{{userpro.Pincode}}</td>               
-                </tr>
-               
-              </tbody>
-            </table>
-          
-          <br/>
-        </h3>
-        <!-- <button type="button" class="btn btn-primary" (click)="ShowFormGroup()">Edit Details</button> -->
-    </div>
-    
-  </div>
-  <div class="card-body" *ngFor="let departmentandunit of departmentandunitnames">
-    <table class="table">              
-      <tbody>
-        <tr>
-          <th scope="row">Department Name:</th>
-          <td>{{departmentandunit.Department_Name}}</td>               
-        </tr>
-        <tr>
-          <th scope="row">Unit Name:</th>
-          <td> {{departmentandunit.Unit_Name}}</td>               
-        </tr>
-       
-      </tbody>
-    </table>
-    
-  </div>
-  <button type="button" class="btn btn-primary" (click)="ShowFormGroup()">Edit Details</button>
-    <div class="form-group" *ngIf="formGroup">
-     
-      <form novalidate
-      (ngSubmit)="save(signupForm)"
-      #signupForm="ngForm">
- 
-  
-        <!----EmailID Field-->
-  
-        <label>Email ID</label>      
-        <div class="form-group">
-         <input type="emailid" [(ngModel)]="employeedetails.Email_id" name="emailid" placeholder="" class="form-control" required #emailid="ngModel" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" />
-         {{employeedetails.Email_id}}
-         <div *ngIf=" emailid.invalid && (emailid.dirty || emailid.touched)" class="alert alert-danger">
-           <div *ngIf="emailid.errors.required"> Emailid is required. </div>
-           <div *ngIf="emailid.errors.pattern">Enter EmailId in correct format</div>
-         </div>
-        </div>
-  
-        <!----Mobile Number-->
-  
-        <label>Mobile Number</label>      
-        <div class="form-group">
-         <input type="mobilenumber" [(ngModel)]="employeedetails.mobile_number" name="mobilenumber" placeholder="" class="form-control" required #mobilenumber="ngModel" pattern="[6789][0-9]{9}" />
-         {{employeedetails.mobile_number}}
-         <div *ngIf=" mobilenumber.invalid && (mobilenumber.dirty || mobilenumber.touched)" class="alert alert-danger">
-           <div *ngIf="mobilenumber.errors.required"> Mobile Number is required. </div>
-           <div *ngIf="mobilenumber.errors.pattern">Enter Mobile Number in correct format</div>
-         </div>
-        </div>
-  
-        <!-- Address Field -->
-  
-        <label>Address</label>      
-        <div class="form-group">
-         <input type="address" [(ngModel)]="employeedetails.Address" name="address" placeholder="" class="form-control" required #address="ngModel" pattern="^[A-Za-z0-9, -]*$" />
-         {{employeedetails.mobile_number}}
-         <div *ngIf=" address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
-           <div *ngIf="address.errors.required"> Address is required. </div>
-           <div *ngIf="address.errors.pattern">Enter Address in correct format</div>
-         </div>
-        </div>
-  
-        <!---City Field-->
-  
-        <label>City</label>      
-        <div class="form-group">
-         <input type="city" [(ngModel)]="employeedetails.City" name="city" placeholder="" class="form-control" required #city="ngModel" pattern="^[A-Za-z]*$" />
-         {{employeedetails.mobile_number}}
-         <div *ngIf=" city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
-           <div *ngIf="city.errors.required"> City is required. </div>
-           <div *ngIf="city.errors.pattern">Enter City in correct format</div>
-         </div>
-        </div>
-  
-        <!-----State-->
-  
-        <label>State</label>      
-        <div class="form-group">
-         <input type="state" [(ngModel)]="employeedetails.State" name="state" placeholder="" class="form-control" required #state="ngModel" pattern="^[A-Za-z ]*$" />
-         {{employeedetails.State}}
-         <div *ngIf=" state.invalid && (state.dirty || state.touched)" class="alert alert-danger">
-           <div *ngIf="state.errors.required"> State is required. </div>
-           <div *ngIf="state.errors.pattern">Enter State in correct format</div>
-         </div>
-        </div>
-  
-        <!------Pincode Field-->
-  
-        <label>Pincode</label>      
-        <div class="form-group">
-         <input type="pincode" [(ngModel)]="employeedetails.Pincode" name="pincode" placeholder="" class="form-control" required #pincode="ngModel" pattern="^[0-9]*$" />
-         {{employeedetails.Pincode}}
-         <div *ngIf=" pincode.invalid && (pincode.dirty || pincode.touched)" class="alert alert-danger">
-           <div *ngIf="pincode.errors.required"> pincode is required. </div>
-           <div *ngIf="pincode.errors.pattern">Enter pincode in correct format</div>
-         </div>
-        </div>
+        <button class="btn btn-outline-primary btn-lg" routerLink="/logout">Logout</button>
+      </div>
+
+      <div class="card" style="width: 55rem;" >
         
-        <button type="submit" class="form-group"  [disabled]="!signupForm.valid" (click)= "EditDetails()">Save </button> 
-        </form>
-    </div>
-  </div>
-    
-   
-  
+          <div class="card-body" *ngFor="let userpro of userprofile">
+          <h1 class="card-title">Welcome {{userpro.First_name}}</h1>
+          <h3 class="card-text">Your UserProfile</h3>
+          
+          </div>
+          
+          <div class="panel panel-default" >
+            <div class="panel-body" *ngFor="let userpro of userprofile">
+                <h1 class="welcome"></h1>
+                <h3 class="details">
+                  <table class="table">
+                    
+                    <tbody>
+                      <tr>
+                        <th scope="row">Employee Id:</th>
+                        <td> {{userpro.Employee_id}} </td> 
+                                    
+                      </tr>
+                      <tr>
+                        <th scope="row">Name:</th>
+                        <td>{{userpro.First_Name}} {{userpro.Last_Name}}</td>               
+                      </tr>
+                    
+                      <tr>
+                        <th scope="row">Role: </th>
+                        <td> {{userpro.Role}}</td>               
+                      </tr>
+                      <tr>
+                          <th scope="row">Age: </th>
+                          <td> {{userpro.Age}}</td>               
+                        </tr>
+                        <tr>
+                          <th scope="row">Gender: </th>
+                          <td> {{userpro.Gender}}</td>               
+                        </tr>
+                        <tr>
+                          <th scope="row">Date Of Birth: </th>
+                          <td> {{userpro.DOB | date}}</td>               
+                        </tr>
+                      <tr>
+                        <th scope="row">Email id:</th>
+                        <td>{{userpro.Email_id}}</td>               
+                      </tr>
+                      <tr>
+                        <th scope="row">Address:</th>
+                        <td>{{userpro.Address}}</td>               
+                      </tr>
+                      <tr>
+                        <th scope="row">City:</th>
+                        <td>{{userpro.City}}</td>               
+                      </tr>
+                      <tr>
+                        <th scope="row">State: </th>
+                        <td>{{userpro.State}}</td>               
+                      </tr>
+                      <tr>
+                        <th scope="row">Pincode</th>
+                        <td>{{userpro.Pincode}}</td>               
+                      </tr>
+                    
+                    </tbody>
+                  </table>
+                
+                <br/>
+              </h3>
+              <!-- <button type="button" class="btn btn-primary" (click)="ShowFormGroup()">Edit Details</button> -->
+          </div>
+          
+        </div>
+        <div class="card-body" *ngFor="let departmentandunit of departmentandunitnames">
+          <table class="table">              
+            <tbody>
+              <tr>
+                <th scope="row">Department Name:</th>
+                <td>{{departmentandunit.Department_Name}}</td>               
+              </tr>
+              <tr>
+                <th scope="row">Unit Name:</th>
+                <td> {{departmentandunit.Unit_Name}}</td>               
+              </tr>
+            
+            </tbody>
+          </table>
+          
+        </div>
+        <button type="button" class="btn btn-primary" (click)="ShowFormGroup()">Edit Details</button>
+          <div class="form-group" *ngIf="formGroup">
+          
+            <form novalidate
+            (ngSubmit)="save(signupForm)"
+            #signupForm="ngForm">
+      
+        
+              <!----EmailID Field-->
+        
+              <label>Email ID</label>      
+              <div class="form-group">
+              <input type="emailid" [(ngModel)]="employeedetails.Email_id" name="emailid" placeholder="" class="form-control" required #emailid="ngModel" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" />
+              {{employeedetails.Email_id}}
+              <div *ngIf=" emailid.invalid && (emailid.dirty || emailid.touched)" class="alert alert-danger">
+                <div *ngIf="emailid.errors.required"> Emailid is required. </div>
+                <div *ngIf="emailid.errors.pattern">Enter EmailId in correct format</div>
+              </div>
+              </div>
+        
+              <!----Mobile Number-->
+        
+              <label>Mobile Number</label>      
+              <div class="form-group">
+              <input type="mobilenumber" [(ngModel)]="employeedetails.mobile_number" name="mobilenumber" placeholder="" class="form-control" required #mobilenumber="ngModel" pattern="[6789][0-9]{9}" />
+              {{employeedetails.mobile_number}}
+              <div *ngIf=" mobilenumber.invalid && (mobilenumber.dirty || mobilenumber.touched)" class="alert alert-danger">
+                <div *ngIf="mobilenumber.errors.required"> Mobile Number is required. </div>
+                <div *ngIf="mobilenumber.errors.pattern">Enter Mobile Number in correct format</div>
+              </div>
+              </div>
+        
+              <!-- Address Field -->
+        
+              <label>Address</label>      
+              <div class="form-group">
+              <input type="address" [(ngModel)]="employeedetails.Address" name="address" placeholder="" class="form-control" required #address="ngModel" pattern="^[A-Za-z0-9, -]*$" />
+              {{employeedetails.mobile_number}}
+              <div *ngIf=" address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+                <div *ngIf="address.errors.required"> Address is required. </div>
+                <div *ngIf="address.errors.pattern">Enter Address in correct format</div>
+              </div>
+              </div>
+        
+              <!---City Field-->
+        
+              <label>City</label>      
+              <div class="form-group">
+              <input type="city" [(ngModel)]="employeedetails.City" name="city" placeholder="" class="form-control" required #city="ngModel" pattern="^[A-Za-z]*$" />
+              {{employeedetails.mobile_number}}
+              <div *ngIf=" city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+                <div *ngIf="city.errors.required"> City is required. </div>
+                <div *ngIf="city.errors.pattern">Enter City in correct format</div>
+              </div>
+              </div>
+        
+              <!-----State-->
+        
+              <label>State</label>      
+              <div class="form-group">
+              <input type="state" [(ngModel)]="employeedetails.State" name="state" placeholder="" class="form-control" required #state="ngModel" pattern="^[A-Za-z ]*$" />
+              {{employeedetails.State}}
+              <div *ngIf=" state.invalid && (state.dirty || state.touched)" class="alert alert-danger">
+                <div *ngIf="state.errors.required"> State is required. </div>
+                <div *ngIf="state.errors.pattern">Enter State in correct format</div>
+              </div>
+              </div>
+        
+              <!------Pincode Field-->
+        
+              <label>Pincode</label>      
+              <div class="form-group">
+              <input type="pincode" [(ngModel)]="employeedetails.Pincode" name="pincode" placeholder="" class="form-control" required #pincode="ngModel" pattern="^[0-9]*$" />
+              {{employeedetails.Pincode}}
+              <div *ngIf=" pincode.invalid && (pincode.dirty || pincode.touched)" class="alert alert-danger">
+                <div *ngIf="pincode.errors.required"> pincode is required. </div>
+                <div *ngIf="pincode.errors.pattern">Enter pincode in correct format</div>
+              </div>
+              </div>
+              
+              <button type="submit" class="form-group"  [disabled]="!signupForm.valid" (click)= "EditDetails()">Save </button> 
+              </form>
+          </div>
+        </div>
+</div>
+          
+        
+        

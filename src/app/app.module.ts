@@ -12,6 +12,7 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import { AdminDashboardService } from './services/admindashboard.service';
 import { TempregComponent } from './tempreg/tempreg.component';
 import { ViewdetailsbyadminComponent } from './viewdetailsbyadmin/viewdetailsbyadmin.component';
+import { LogoutComponent } from './logout/logout.component';
 //import { MustMatchDirective } from './_helpers/must-match.directive';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ViewdetailsbyadminComponent } from './viewdetailsbyadmin/viewdetailsbya
     AdmindashboardComponent,
     TempregComponent,
     ViewdetailsbyadminComponent,
+    LogoutComponent,
     //MustMatchDirective
   ],
   imports: [
