@@ -1,4 +1,5 @@
-<p>viewdetailsbyadmin works!</p>
+<div class="viewdetailsbyadmin">
+
 
 <div class="card" style="width: 55rem;" >
   
@@ -87,50 +88,70 @@
     </table>
     
   </div>
-  <button type="button" class="btn btn-primary" (click)="ShowFormGroup()">Edit Details</button>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="ShowFormGroup()">Edit Details</button>
 
 
 
-  <div class="form-group" *ngIf="formGroup">
-     
-    <form novalidate
-    (ngSubmit)="save(signupForm)"
-    #signupForm="ngForm">    
+</div>
+  
 
-      <!-- Role Field -->
-
-      <label>Role</label>      
-      <div class="form-group">
-       <input type="role" [(ngModel)]="employeedetails.Role" name="role" placeholder="" class="form-control" required #role="ngModel" pattern="^[A-Z a-z]*$" />
-       
-       <div *ngIf=" role.invalid && (role.dirty || role.touched)" class="alert alert-danger">
-         <div *ngIf="role.errors.required"> Role is required. </div>
-         <div *ngIf="role.errors.pattern">Enter Role in correct format</div>
-       </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Registered Successfully!!</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-
-    <!--   Department Name Field -->
-    <label>Department Name</label>
-
-    <select [(ngModel)]="selectedDepartmentName" name="department">
-        <option value></option>
-        <option *ngFor="let c of AllDepartmentNames" [ngValue]="c">{{c.Department_name}}</option>
-        
-      </select>
-    
-<br>
-<br>
-      <!-- Unit Name Field -->
-
-      <label>Unit Name</label>
+      <div class="modal-body">
+        <div class="form-group" *ngIf="formGroup">
+     
+          <form novalidate
+          (ngSubmit)="save(signupForm)"
+          #signupForm="ngForm">    
       
-      <select [(ngModel)]="selectedBusinessUnitName" name="businessunit" > 
-          <option value>{{selectedBusinessUnitName}}</option>
-          <option *ngFor="let c of AllBusinessUnitNames" [ngValue]="c">{{c.Unit_Name}}</option>
-        </select> 
-
-      <button type="submit" class="form-group"  [disabled]="!signupForm.valid" (click)= "EditDetails()">Save </button> 
-      </form>
+            <!-- Role Field -->
+      
+            <label>Role</label>      
+            <div class="form-group">
+             <input type="role" [(ngModel)]="employeedetails.Role" name="role" placeholder="" class="form-control" required #role="ngModel" pattern="^[A-Z a-z]*$" />
+             
+             <div *ngIf=" role.invalid && (role.dirty || role.touched)" class="alert alert-danger">
+               <div *ngIf="role.errors.required"> Role is required. </div>
+               <div *ngIf="role.errors.pattern">Enter Role in correct format</div>
+             </div>
+            </div>
+      
+          <!--   Department Name Field -->
+          <label>Department Name</label>
+          &nbsp;&nbsp;&nbsp;
+          <select [(ngModel)]="selectedDepartmentName" name="department">
+              <option value></option>
+              <option *ngFor="let c of AllDepartmentNames" [ngValue]="c">{{c.Department_name}}</option>
+              
+            </select>
+          
+      <br>
+      <br>
+            <!-- Unit Name Field -->
+      
+            <label>Unit Name</label>
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select [(ngModel)]="selectedBusinessUnitName" name="businessunit" > 
+                <option value>{{selectedBusinessUnitName}}</option>
+                <option *ngFor="let c of AllBusinessUnitNames" [ngValue]="c">{{c.Unit_Name}}</option>
+              </select> 
+              <br><br>
+            <button type="submit" class="btn btn-primary"  [disabled]="!signupForm.valid" (click)= "EditDetails()">Save </button> 
+            </form>
+        </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>
   

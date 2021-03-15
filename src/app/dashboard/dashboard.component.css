@@ -1,7 +1,13 @@
 .dashboard {
     margin-top: 100px;
     margin: auto;
-    width: 50%;
-    
+    width: 50%;    
     padding: 10px;
   }
+
+  .logout{
+    text-align: right;
+    
+  }
+
+  

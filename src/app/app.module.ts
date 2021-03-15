@@ -13,6 +13,10 @@ import { AdminDashboardService } from './services/admindashboard.service';
 import { TempregComponent } from './tempreg/tempreg.component';
 import { ViewdetailsbyadminComponent } from './viewdetailsbyadmin/viewdetailsbyadmin.component';
 import { LogoutComponent } from './logout/logout.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+
 //import { MustMatchDirective } from './_helpers/must-match.directive';
 
 @NgModule({
@@ -23,13 +27,16 @@ import { LogoutComponent } from './logout/logout.component';
     TempregComponent,
     ViewdetailsbyadminComponent,
     LogoutComponent,
+    
     //MustMatchDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    Ng2SearchPipeModule
   ],
   providers: [UserProfileService, RegisterService,LoginService,AdminDashboardService],
   bootstrap: [AppComponent]

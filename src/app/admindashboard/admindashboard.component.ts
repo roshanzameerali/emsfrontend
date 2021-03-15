@@ -14,6 +14,8 @@ export class AdmindashboardComponent implements OnInit {
   formGroup:boolean=false;
   employeedetails:UserProfile;
   id:string="";
+  searchText:string="";
+  deleteEmployeeId:string="";
   constructor(private adminDashboardService:AdminDashboardService,private route:Router) { 
     this.employeedetails = new UserProfile();
     this.adminDashboardService.getDetailsForAdminDashboardFromApi().subscribe(
@@ -35,13 +37,19 @@ export class AdmindashboardComponent implements OnInit {
       console.log(id);
   }
 
-  DeleteDetails(id:string)
+  SendEmployeeId(id:string)
   { 
       console.log(id);
-      this.adminDashboardService.DeleteDetails(id).subscribe(
-        user=>{this.admindashboard_details=user,
-          console.log(this.admindashboard_details);}
-          )  
+      localStorage.setItem('DeletingEmployeeId',id);
+      this.deleteEmployeeId = localStorage.getItem('DeletingEmployeeId');
+  }
+
+  DeleteDetails(id:string) {
+    this.adminDashboardService.DeleteDetails(id).subscribe(
+      user=>{this.admindashboard_details=user,
+        console.log(this.admindashboard_details);}
+        ) 
+    window.location.reload();
   }
 
   // DeleteDetails(id:string)

@@ -3,6 +3,7 @@ import { Register } from '../models/register.model';
 import { RegisterService } from '../services/register.service';
 import {NgForm} from '@angular/forms';
 
+
 @Component({
   selector: 'app-tempreg',
   templateUrl: './register.component.html',
@@ -40,3 +41,5 @@ export class RegisterComponent   implements OnInit {
   }
 
 }
+
+
