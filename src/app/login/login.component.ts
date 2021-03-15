@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Login } from '../models/login.model';
 import { LoginService } from '../services/login.service';
 import {Router} from '@angular/router';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,11 @@ export class LoginComponent implements OnInit {
   Role:any;
   constructor(private loginService:LoginService,private router:Router) { 
     this.login = new Login();
+  }
+
+  save(customerForm: NgForm) {
+
+    //console.log('Saved: ' + JSON.stringify(customerForm.value));
   }
 
   Login()

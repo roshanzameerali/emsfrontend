@@ -31,7 +31,6 @@ export class RegisterComponent   implements OnInit {
       this.referenceid = this.registerreturn[0],      
       console.log(this.referenceid),
        console.log("Called")} )
-
      
     
   }

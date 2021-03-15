@@ -1,18 +1,29 @@
-<p>login works!</p>
-
 <div class="loginform">
-  <label>Employee ID</label>&nbsp; 
-  <input type="text"  [(ngModel)]="login.Employee_Id" >  <br><br>
-  <label>Password</label>  &nbsp;   &nbsp; &nbsp;        
-  <input type="password"  [(ngModel)]="login.Password"  >   <br>  <br>       
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <button type="button" class="btn btn-primary" (click)=" Login()">Login </button>            
+  <form novalidate
+  (ngSubmit)="save(signupForm)"
+  #signupForm="ngForm">
+<label>Employee ID</label>      
+<div class="form-group">
+<input type="employeeid" [(ngModel)]="login.Employee_Id" name="employeeid" class="form-control" required #employeeid="ngModel" pattern="^[0-9]*$" />
+
+<div *ngIf=" employeeid.invalid && (employeeid.dirty || employeeid.touched)" class="alert alert-danger">
+ <div *ngIf="employeeid.errors.required"> employeeid is required. </div>
+ <div *ngIf="employeeid.errors.pattern">Enter employeeid in correct format</div>
+</div>
+</div>
+
+<label>Password:</label>
+<div class="form-group">
+    <input type="password" [(ngModel)]="login.Password" name="password"  class="form-control" required #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+    
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+      <div *ngIf="password.errors.required"> Password is required. </div>
+      <div *ngIf="password.errors.pattern"> Enter Correct Password.</div>
+    </div>
+   </div>
+   <button type="button" [disabled]="!signupForm.valid" class="btn btn-primary" (click)=" Login()">Login </button> 
+</form>
            
 </div>
 <p>{{Role}}</p>
-<!-- <div class="panel-body" *ngFor="let userpro of Role">
-    {{userpro.Role}}
-</div> -->
 

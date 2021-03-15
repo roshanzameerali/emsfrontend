@@ -102,7 +102,7 @@
       <label>Role</label>      
       <div class="form-group">
        <input type="role" [(ngModel)]="employeedetails.Role" name="role" placeholder="" class="form-control" required #role="ngModel" pattern="^[A-Z a-z]*$" />
-       {{employeedetails.Role}}
+       
        <div *ngIf=" role.invalid && (role.dirty || role.touched)" class="alert alert-danger">
          <div *ngIf="role.errors.required"> Role is required. </div>
          <div *ngIf="role.errors.pattern">Enter Role in correct format</div>
@@ -113,7 +113,7 @@
     <label>Department Name</label>
 
     <select [(ngModel)]="selectedDepartmentName" name="department">
-        <option value>{{selectedDepartmentName}}</option>
+        <option value></option>
         <option *ngFor="let c of AllDepartmentNames" [ngValue]="c">{{c.Department_name}}</option>
         
       </select>
@@ -123,7 +123,7 @@
       <!-- Unit Name Field -->
 
       <label>Unit Name</label>
-      {{selectedBusinessUnitName}}
+      
       <select [(ngModel)]="selectedBusinessUnitName" name="businessunit" > 
           <option value>{{selectedBusinessUnitName}}</option>
           <option *ngFor="let c of AllBusinessUnitNames" [ngValue]="c">{{c.Unit_Name}}</option>
