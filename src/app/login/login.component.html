@@ -1,7 +1,9 @@
-<div class="loginform">
+<div class="loginform"><br><br>
+  <h1>&nbsp;&nbsp;EMS Portal Login</h1>
   <form novalidate
   (ngSubmit)="save(signupForm)"
   #signupForm="ngForm">
+
 <label>Employee ID</label>      
 <div class="form-group">
 <input type="employeeid" [(ngModel)]="login.Employee_Id" name="employeeid" class="form-control" required #employeeid="ngModel" pattern="^[0-9]*$" />
@@ -21,6 +23,8 @@
       <div *ngIf="password.errors.pattern"> Enter Correct Password.</div>
     </div>
    </div>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <button type="button" [disabled]="!signupForm.valid" class="btn btn-primary" (click)=" Login()">Login </button> 
 </form>
            

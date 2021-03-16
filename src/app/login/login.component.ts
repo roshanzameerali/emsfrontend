@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         this.Role = "Invalid User" ;
         else if (this.Role[0] === "Admin")
         {
-          
+          localStorage.setItem('Employee_id',this.login.Employee_Id);
           this.router.navigateByUrl('/admindashboard');
         }
         else 

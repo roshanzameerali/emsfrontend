@@ -1,93 +1,104 @@
-<!-- First name field -->
-<div class="registerform">
+<div class="registerform"> 
   <form novalidate
-    (ngSubmit)="save(signupForm)"
-    #signupForm="ngForm">
-<label>First Name:</label>
-<input  name="firstname" class="form-control"
-    required minlength="2" 
-    [(ngModel)]="register.First_Name" #fname="ngModel" required >
-      
-  <div *ngIf="fname.invalid && (fname.dirty || fname.touched)"
-      class="alert alert-danger">
-
-      <div *ngIf="fname.errors.required">
-          Name is required.
-      </div>
-      <div *ngIf="fname.errors.minlength">
-          Name must be at least 2 characters long.
-      </div>
-
-  </div>
-  <!-- LAst name field  -->
-
-  <label>Last Name:</label>
-<input name="lastname" class="form-control"
-    required minlength="2" 
-    [(ngModel)]="register.Last_Name" #lname="ngModel" >
-
-  <div *ngIf="lname.invalid && (lname.dirty || lname.touched)"
-      class="alert alert-danger">
-
-      <div *ngIf="lname.errors.required">
-          Name is required.
-      </div>
-      <div *ngIf="lname.errors.minlength">
-          Last Name must be at least 2 characters long.
-      </div>
-
-  </div>
-
-  <!-- Password Field -->
-<label>Password:</label>
-  <div class="form-group">
-      <input type="password" [(ngModel)]="register.Password" name="password" placeholder=" Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" class="form-control" required #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
-      
-      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
-        <div *ngIf="password.errors.required"> Password is required. </div>
-        <div *ngIf="password.errors.pattern"> Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.</div>
-      </div>
-     </div>
-<label>Confirm Password</label>      
-     <div class="form-group">
-      <input type="password" [(ngModel)]="register.Confirm_Password" name="confirmpassword" placeholder="Password & Confirm Password should match." class="form-control" required #confirmpassword="ngModel" pattern="{{ password.value }}" />
-      <div *ngIf=" confirmpassword.invalid && (password.dirty || confirmpassword.touched)" class="alert alert-danger">
-        <div *ngIf="confirmpassword.errors.required"> Confirm password is required. </div>
-        <div *ngIf="confirmpassword.errors.pattern"> Password & Confirm Password does not match.</div>
-      </div>
-     </div>
-
-     <!-- Age Field-->
-
-     <label>Age</label>
-     <input id="age" name="age" class="form-control"
-           
-           [(ngModel)]="register.Age" #age="ngModel" min="18" max="56">
-     
-         <div *ngIf="age.invalid && (age.dirty || age.touched)"
-             class="alert alert-danger">
-     
-             <div *ngIf="age.errors.required">
-                 Age is required.
-             </div>
-             <div *ngIf="age.errors.min">
-              Age is required.
-          </div>
-     
-         </div>
-         <br>
-      <!--GEdner-->
-         <label>Gender: </label><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="Male"  [(ngModel)]="register.Gender" > Male<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="Female"  [(ngModel)]="register.Gender" > Female<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="other"  [(ngModel)]="register.Gender" > Other     
-         <br>
-         <br>
-      <!---DOB-->
-      <label>Date Of Birth: </label><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<input type="date" name="date" [(ngModel)]="register.DOB"  >  
+  (ngSubmit)="save(signupForm)"
+  #signupForm="ngForm">
+    <div class="container-fluid">
+      <h1>Register Yourself into the Portal</h1>
       <br><br>
-      <!----EmailID Field-->
+      <div class="row">
+        <div class="col-sm-3 col-md-6">
+          <h3>Your Personal Details</h3>
+         <!-- First name field --> 
+          <label>First Name:</label>
+          <input  name="firstname" class="form-control"
+              required minlength="2" 
+              [(ngModel)]="register.First_Name" #fname="ngModel" required >
+                
+            <div *ngIf="fname.invalid && (fname.dirty || fname.touched)"
+                class="alert alert-danger">
+
+                <div *ngIf="fname.errors.required">
+                    Name is required.
+                </div>
+                <div *ngIf="fname.errors.minlength">
+                    Name must be at least 2 characters long.
+                </div>
+
+            </div><br>
+            <!-- LAst name field  -->
+
+            <label>Last Name:</label>
+          <input name="lastname" class="form-control"
+              required minlength="2" 
+              [(ngModel)]="register.Last_Name" #lname="ngModel" >
+
+            <div *ngIf="lname.invalid && (lname.dirty || lname.touched)"
+                class="alert alert-danger">
+
+                <div *ngIf="lname.errors.required">
+                    Name is required.
+                </div>
+                <div *ngIf="lname.errors.minlength">
+                    Last Name must be at least 2 characters long.
+                </div>
+
+            </div><br>
+
+            <!-- Password Field -->
+          <label>Password:</label>
+            <div class="form-group">
+                <input type="password" [(ngModel)]="register.Password" name="password" placeholder=" Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" class="form-control" required #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+                
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                  <div *ngIf="password.errors.required"> Password is required. </div>
+                  <div *ngIf="password.errors.pattern"> Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.</div>
+                </div>
+              </div><br>
+          <label>Confirm Password</label>      
+              <div class="form-group">
+                <input type="password" [(ngModel)]="register.Confirm_Password" name="confirmpassword" placeholder="Password & Confirm Password should match." class="form-control" required #confirmpassword="ngModel" pattern="{{ password.value }}" />
+                <div *ngIf=" confirmpassword.invalid && (password.dirty || confirmpassword.touched)" class="alert alert-danger">
+                  <div *ngIf="confirmpassword.errors.required"> Confirm password is required. </div>
+                  <div *ngIf="confirmpassword.errors.pattern"> Password & Confirm Password does not match.</div>
+                </div>
+              </div><br>
+
+              <!-- Age Field-->
+
+              <label>Age</label>
+              <input id="age" name="age" class="form-control"
+                    
+                    [(ngModel)]="register.Age" #age="ngModel" pattern="^[1-9][0-9]*$"
+                    maxlength="2" minlength="2">
+              
+                  <div *ngIf="age.invalid && (age.dirty || age.touched)"
+                      class="alert alert-danger">
+              
+                      <div *ngIf="age.errors.required">
+                          Age is requIred.
+                      </div>
+                      <div *ngIf="age.errors.minlength">
+                        Age must be greater than 18.
+                    </div>
+              
+                  </div>
+                  <br>
+                  
+                <!--GEdner-->
+                  <label>Gender: </label><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="Male"  [(ngModel)]="register.Gender" > Male<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="Female"  [(ngModel)]="register.Gender" > Female<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="other"  [(ngModel)]="register.Gender" > Other     
+                  
+                
+        </div>
+        <div class="col-sm-3 col-md-6">
+          <h3>EmailID, Mobile Numbers & Stuff</h3>
+          <!---DOB-->
+          <label>Date Of Birth: </label>
+          &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-control" type="date" name="date" [(ngModel)]="register.DOB"  max="2005-01-01">  
+          <br>
+          <!----EmailID Field-->
 
       <label>Email ID</label>      
       <div class="form-group">
@@ -109,7 +120,7 @@
          <div *ngIf="mobilenumber.errors.required"> Mobile Number is required. </div>
          <div *ngIf="mobilenumber.errors.pattern">Enter Mobile Number in correct format</div>
        </div>
-      </div>
+      </div><br>
 
       <!-- Address Field -->
 
@@ -121,7 +132,7 @@
          <div *ngIf="address.errors.required"> Address is required. </div>
          <div *ngIf="address.errors.pattern">Enter Address in correct format</div>
        </div>
-      </div>
+      </div><br>
 
       <!---City Field-->
 
@@ -134,7 +145,7 @@
          <div *ngIf="city.errors.pattern">Enter City in correct format</div>
        </div>
       </div>
-
+      <br>
       <!-----State-->
 
       <label>State</label>      
@@ -145,7 +156,7 @@
          <div *ngIf="state.errors.required"> State is required. </div>
          <div *ngIf="state.errors.pattern">Enter State in correct format</div>
        </div>
-      </div>
+      </div><br>
 
       <!------Pincode Field-->
 
@@ -157,8 +168,17 @@
          <div *ngIf="pincode.errors.required"> pincode is required. </div>
          <div *ngIf="pincode.errors.pattern">Enter pincode in correct format</div>
        </div>
+      </div><br>
+    
+        </div>
       </div>
+    </div>
 
+    <br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     
       <button type="submit" class="btn btn-primary" (click)= "Register()" data-toggle="modal" data-target="#exampleModal" [disabled]="!signupForm.valid" >Register </button> 
       </form>
  
