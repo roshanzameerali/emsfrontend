@@ -15,6 +15,8 @@ import { ViewdetailsbyadminComponent } from './viewdetailsbyadmin/viewdetailsbya
 import { LogoutComponent } from './logout/logout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { OrganisationchartComponent } from './organisationchart/organisationchart.component';
+import { OrgChartService } from './services/orgchart.service';
 
 
 //import { MustMatchDirective } from './_helpers/must-match.directive';
@@ -27,6 +29,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     TempregComponent,
     ViewdetailsbyadminComponent,
     LogoutComponent,
+    OrganisationchartComponent,
     
     //MustMatchDirective
   ],
@@ -38,7 +41,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     NgbModule,
     Ng2SearchPipeModule
   ],
-  providers: [UserProfileService, RegisterService,LoginService,AdminDashboardService],
+  providers: [UserProfileService, RegisterService,LoginService,AdminDashboardService,OrgChartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

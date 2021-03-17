@@ -8,6 +8,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
 import { TempregComponent } from './tempreg/tempreg.component';
 import { ViewdetailsbyadminComponent } from './viewdetailsbyadmin/viewdetailsbyadmin.component';
+import { OrganisationchartComponent } from './organisationchart/organisationchart.component';
 
 const routes: Routes = [
   { path: 'homepage', component: HomePageComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'admindashboard', component: AdmindashboardComponent},
   {path: 'tempreg', component: TempregComponent},
   {path: 'viewdetailsbyadmin', component: ViewdetailsbyadminComponent},
-  {path: 'logout', component: LogoutComponent}
+  {path: 'logout', component: LogoutComponent},
+  {path: 'organisationchart', component: OrganisationchartComponent}
 ];
 
 @NgModule({
@@ -26,4 +28,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [HomePageComponent,RegisterComponent,
-LoginComponent,DashboardComponent,AdmindashboardComponent,TempregComponent,ViewdetailsbyadminComponent,LogoutComponent]
+LoginComponent,DashboardComponent,AdmindashboardComponent,TempregComponent,ViewdetailsbyadminComponent,LogoutComponent,
+OrganisationchartComponent]
