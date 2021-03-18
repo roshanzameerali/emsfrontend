@@ -21,9 +21,12 @@ export class DashboardComponent implements OnInit {
     this.employeedetails = new UserProfile();
     this.userProfileService.getUserProfileFromApi(this.id).subscribe(
       user=>{this.userprofile=user,
-        console.log(this.userprofile);}
+        console.log(this.userprofile);
+        localStorage.setItem('EmployeeIdForOrgChart',this.id);
+        localStorage.setItem('WorkingUnderForOrgChart',this.userprofile[0].working_under);}
         )  
-    
+     
+
     this.userProfileService.getDepartmentAndUnitNamesFromApi(this.id).subscribe(
       user=>{this.departmentandunitnames=user,
         console.log(this.departmentandunitnames);}
