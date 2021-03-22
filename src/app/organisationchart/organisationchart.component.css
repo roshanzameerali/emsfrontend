@@ -6,10 +6,22 @@
     padding-left: 140px;
   }
 
+  .notpeers {
+    margin-top: 100px;
+    margin: auto;
+    /* width: 50%; */
+    
+    /* padding-left: 140px; */
+  }
+
   .workingunderdetails{
     margin-top: 100px;
     margin: auto;
     width: 50%;
     
     padding-left: 140px;
+  }
+
+  #card-bodypeer.card-title{
+    background-color: green;
   }

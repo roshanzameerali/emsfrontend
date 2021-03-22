@@ -6,6 +6,7 @@ import { AuthGuardServiceService } from '../auth-guard-service.service';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -20,7 +21,7 @@ export class DashboardComponent implements OnInit {
   
   departmentandunitnames:any
   constructor(private userProfileService:UserProfileService,private AuthGuardService:AuthGuardServiceService,private router:Router)   {
-    
+
     this.employeedetails = new UserProfile();
     this.userProfileService.getUserProfileFromApi(this.id).subscribe(
       user=>{this.userprofile=user,
@@ -32,7 +33,9 @@ export class DashboardComponent implements OnInit {
 
     this.userProfileService.getDepartmentAndUnitNamesFromApi(this.id).subscribe(
       user=>{this.departmentandunitnames=user,
-        console.log(this.departmentandunitnames);}
+        console.log(this.departmentandunitnames);
+       
+        }
         )  
 
    }
@@ -41,6 +44,7 @@ export class DashboardComponent implements OnInit {
         this.router.navigateByUrl("/login");  
       }  
         return this.AuthGuardService.gettoken();  
+   
     }
 
    save(customerForm: NgForm) {

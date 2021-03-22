@@ -30,7 +30,8 @@ export class ViewdetailsbyadminComponent implements OnInit {
         ) 
     this.userProfileService.getDepartmentAndUnitNamesFromApi(this.id).subscribe(
       user=>{this.departmentandunitnames=user,
-        console.log(this.departmentandunitnames);}
+        console.log(this.departmentandunitnames);
+        this.selectedBusinessUnitName = this.departmentandunitnames.Unit_Name;}
         )  
     this.userProfileService.GetAllDepartmentDetails().subscribe(
       user=>{this.AllDepartmentNames=user,
@@ -38,7 +39,9 @@ export class ViewdetailsbyadminComponent implements OnInit {
         ) 
     this.userProfileService.GetAllBusinessUnitDetails().subscribe(
       user=>{this.AllBusinessUnitNames=user,
-        console.log(this.AllBusinessUnitNames);}
+        console.log(this.AllBusinessUnitNames);
+        
+      }
         ) 
     this.userProfileService.GetEmployeeIds(this.id).subscribe(
       user=>{this.AllEmployeeIds=user,

@@ -115,7 +115,7 @@
       
             <label>Role</label>      
             <div class="form-group">
-             <input type="role" [(ngModel)]="employeedetails.Role" name="role" placeholder="" class="form-control" required #role="ngModel" pattern="^[A-Z a-z]*$" />
+             <input type="role" [(ngModel)]="employeedetails.Role" name="role" placeholder="Enter Developer or Tester" class="form-control" required #role="ngModel" pattern="^[Developer Tester]*$" />
              
              <div *ngIf=" role.invalid && (role.dirty || role.touched)" class="alert alert-danger">
                <div *ngIf="role.errors.required"> Role is required. </div>

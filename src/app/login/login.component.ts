@@ -4,6 +4,7 @@ import { LoginService } from '../services/login.service';
 import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -35,11 +36,14 @@ export class LoginComponent implements OnInit {
         else if (this.Role[0] === "Admin")
         {
           localStorage.setItem('Employee_id',this.login.Employee_Id);
-          this.router.navigateByUrl('/admindashboard');
+          
+            this.router.navigateByUrl('/admindashboard');         
+         
         }
         else 
         {
           localStorage.setItem('Employee_id',this.login.Employee_Id);
+          
           this.router.navigateByUrl('/dashboard');
           console.log("[\"Admin\"]");
         }

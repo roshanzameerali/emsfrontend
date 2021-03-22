@@ -81,7 +81,7 @@
 
     <span class="homepage">
         <span class="peers" *ngFor = "let peer of peers" >
-          <span class="greyed-out">
+          <span class="greyed-out" *ngIf ="peer.Employee_id != EmployeeIdForOrgChart">
             <div style="display:inline-block;">
                 <div class="card" style="width: 26rem;">
                 
@@ -100,15 +100,15 @@
               </div>
             </span>  
         </span>
-        <!-- <span class="notpeers" *ngFor = "let peer of peers" >
+        <span class="notpeers" *ngFor = "let peer of peers" >
           <span *ngIf ="peer.Employee_id == EmployeeIdForOrgChart" class="greyed-out">
             <div style="display:inline-block;">
                 <div class="card" style="width: 26rem;">
                 
-                  <div class="card-body" >
+                  <div class="card-bodypeer" >
                     
-                    <h4 class="card-title">Id : {{peer.Employee_id}}</h4>
-                    <h4 class="card-text">Name: {{peer.First_Name}} {{peer.Last_Name}}</h4>
+                    <h4 class="card-title" style="color:green">Id : {{peer.Employee_id}}</h4>
+                    <h4 class="card-text" style="color:green">Name: {{peer.First_Name}} {{peer.Last_Name}}</h4>
                   </div>
                   <h3>Contact Details:</h3>
                   <ul class="list-group list-group-flush">
@@ -119,7 +119,7 @@
                 </div>
               </div>
             </span>  
-        </span> -->
+        </span>
       </span>
 &nbsp;
    

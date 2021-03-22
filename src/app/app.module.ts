@@ -20,6 +20,7 @@ import { OrgChartService } from './services/orgchart.service';
 import { AuthGuardService } from './services/authguard.service';
 
 
+
 //import { MustMatchDirective } from './_helpers/must-match.directive';
 
 @NgModule({
@@ -40,7 +41,8 @@ import { AuthGuardService } from './services/authguard.service';
     HttpClientModule,
     FormsModule,
     NgbModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+ 
   ],
   providers: [UserProfileService, RegisterService,LoginService,AdminDashboardService,OrgChartService,AuthGuardService],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { UserProfile } from '../models/userprofile.model';
 import { AdminDashboardService } from '../services/admindashboard.service';
 import {NgForm} from '@angular/forms';
 import { Router } from '@angular/router';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @Component({
   selector: 'app-admindashboard',
