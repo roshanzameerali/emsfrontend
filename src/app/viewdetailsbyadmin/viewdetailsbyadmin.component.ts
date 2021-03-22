@@ -52,6 +52,7 @@ export class ViewdetailsbyadminComponent implements OnInit {
   {
      //this.refid = userprofile.refid; 
      this.employeedetails.Role = this.userprofile[0].Role;
+     this.employeedetails.working_under= this.userprofile[0].working_under;
     //  this.selectedDepartmentName =  this.departmentandunitnames[0].Department_Name;
     //   this.selectedBusinessUnitName =  this.departmentandunitnames[0].Unit_Name;
 

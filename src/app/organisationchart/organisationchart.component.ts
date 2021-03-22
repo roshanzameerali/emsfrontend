@@ -10,7 +10,10 @@ import { OrgChartService } from '../services/orgchart.service';
 export class OrganisationchartComponent implements OnInit {
   getPeers:GetPeers;
   peers:any;
+  employeedetails:any;
   working_under: any;
+  PeerCount:number = 0;
+  index:number=0;
   constructor(private orgchartService:OrgChartService) {
     this.getPeers = new GetPeers();
     this.getPeers.Employee_id = localStorage.getItem('EmployeeIdForOrgChart');
@@ -20,8 +23,31 @@ export class OrganisationchartComponent implements OnInit {
         console.log(this.peers);
         this.working_under = this.peers[0].working_under;}
         )
+       // console.log(this.getPeers.Employee_id);
+    this.orgchartService.viewDetails(this.getPeers.Employee_id).subscribe(
+      user=>{this.employeedetails=user,
+        console.log(this.employeedetails);}
+       // this.working_under = this.peers[0].working_under;
+        )
     
    }
+
+   ViewDetails()
+   {
+     this.PeerCount = this.peers.length;
+     
+     for(var peer of this.peers) {
+       console.log(peer.Employee_id);
+       this.orgchartService.viewDetails(peer.Employee_id).subscribe(
+        user=>{this.employeedetails=user,
+          console.log(this.employeedetails);}
+         // this.working_under = this.peers[0].working_under;
+          )
+     }
+      
+     }
+    
+   
 
   ngOnInit(): void {
   }

@@ -124,6 +124,19 @@
             </div>
 
             
+            <!-- Role Field -->
+      
+            <label>Role</label>      
+            <div class="form-group">
+             <input type="working_under" [(ngModel)]="employeedetails.working_under" name="working_under" placeholder="" class="form-control" required #working_under="ngModel" pattern="^[0-9]*$" />
+             
+             <div *ngIf=" working_under.invalid && (working_under.dirty || working_under.touched)" class="alert alert-danger">
+               <div *ngIf="working_under.errors.required"> working_under is required. </div>
+               <div *ngIf="working_under.errors.pattern">Enter working_under in correct format</div>
+             </div>
+            </div>
+
+            
       
           <!--   Department Name Field -->
           <label>Department Name</label>

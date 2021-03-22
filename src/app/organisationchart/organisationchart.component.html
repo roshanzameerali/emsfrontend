@@ -5,3 +5,10 @@ Employees Under {{working_under}}:
      {{peer.Employee_id}}
     
 </div>
+
+<div class="employeedetails" *ngFor = "let employeedetail of employeedetails">
+     {{employeedetails.Employee_id}}
+    
+</div>
+
+<button class="btn btn-link" (click)="ViewDetails()">View Details</button>

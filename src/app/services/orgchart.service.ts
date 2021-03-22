@@ -13,4 +13,8 @@ export class OrgChartService{
     public getPeersFromApi(getPeers:GetPeers){
         return this.postHttp.post("http://localhost:60000/api/GetPeers/",getPeers);
     }
+
+    public viewDetails(id:any){
+        return this.getHttp.get("http://localhost:60000/GetDepartmentAndBusinessDetails/ViewEmployeeDetails/?id="+id);
+    }
 }

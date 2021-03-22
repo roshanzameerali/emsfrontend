@@ -11,6 +11,7 @@ export class UserProfile{
     City: string;
     State:string;
     Pincode: number;
+    working_under:string;
     Department_Name: string;
     Unit_Name: string;
     Unit_id:number;
@@ -18,7 +19,7 @@ export class UserProfile{
 
     constructor(Employee_Id:number=0,Name:string="",Role:string="",Age:number=0,
     Gender:string="",DOB:string="",Email_id:string="",mobile_number:string="",Address:string="",
-    City:string="",State:string="",Pincode:number=0,Department_Name:string="",
+    City:string="",State:string="",Pincode:number=0,working_under:string="",Department_Name:string="",
     Unit_Name:string="",Unit_id:number=0,Department_id:number=0) {
 
         this.Employee_Id = Employee_Id;
@@ -33,6 +34,7 @@ export class UserProfile{
         this.City = City;
         this.State = State;
         this.Pincode = Pincode;
+        this.working_under = working_under;
         this.Department_Name = Department_Name;
         this.Unit_Name = Unit_Name;  
         this.Unit_id = Unit_id;
