@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserProfile } from '../models/userprofile.model';
 import { UserProfileService } from '../services/userprofile.service';
 import {NgForm} from '@angular/forms';
+import { AuthGuardServiceService } from '../auth-guard-service.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +19,8 @@ export class DashboardComponent implements OnInit {
   employeedetails:UserProfile;
   
   departmentandunitnames:any
-  constructor(private userProfileService:UserProfileService) {
+  constructor(private userProfileService:UserProfileService,private AuthGuardService:AuthGuardServiceService,private router:Router)   {
+    
     this.employeedetails = new UserProfile();
     this.userProfileService.getUserProfileFromApi(this.id).subscribe(
       user=>{this.userprofile=user,
@@ -25,7 +28,7 @@ export class DashboardComponent implements OnInit {
         localStorage.setItem('EmployeeIdForOrgChart',this.id);
         localStorage.setItem('WorkingUnderForOrgChart',this.userprofile[0].working_under);}
         )  
-     
+        
 
     this.userProfileService.getDepartmentAndUnitNamesFromApi(this.id).subscribe(
       user=>{this.departmentandunitnames=user,
@@ -33,6 +36,12 @@ export class DashboardComponent implements OnInit {
         )  
 
    }
+   canActivate(): boolean {  
+      if (!this.AuthGuardService.gettoken()) {  
+        this.router.navigateByUrl("/login");  
+      }  
+        return this.AuthGuardService.gettoken();  
+    }
 
    save(customerForm: NgForm) {
 

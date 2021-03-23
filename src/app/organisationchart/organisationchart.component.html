@@ -1,14 +1,40 @@
 <p>organisationchart works!</p>
 You are working under: {{working_under}}
+<br><br>
 Employees Under {{working_under}}:
-<div class="peers" *ngFor = "let peer of peers">
-     {{peer.Employee_id}}
-    
+<br><br>
+
+<div class="workingunderdetails" *ngFor = "let workingunderdetail of WorkingUnderDetails">
+     {{workingunderdetail.First_Name}} {{workingunderdetail.Last_Name}}
 </div>
 
-<div class="employeedetails" *ngFor = "let employeedetail of employeedetails">
-     {{employeedetails.Employee_id}}
-    
+
+<div class="homepage">
+     <div class="peers" *ngFor = "let peer of peers">
+
+          <table class="table">
+               <thead>
+                 <tr>
+                   <th scope="col">ID</th>
+                   <th scope="col">Name</th>
+                   <th scope="col">Email id</th>
+                   <th scope="col">Mobile Number</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                   <th scope="row">{{peer.Employee_id}}</th>
+                   <td>{{peer.First_Name}} {{peer.Last_Name}}</td>
+                   <td>{{peer.Email_id}}</td>
+                   <td>{{peer.mobile_number}}</td>
+                 </tr>
+                 
+               </tbody>
+             </table>
+         
+     </div>
 </div>
+
 
 <button class="btn btn-link" (click)="ViewDetails()">View Details</button>
+

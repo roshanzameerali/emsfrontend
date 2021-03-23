@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OrganisationchartComponent } from './organisationchart/organisationchart.component';
 import { OrgChartService } from './services/orgchart.service';
+import { AuthGuardService } from './services/authguard.service';
 
 
 //import { MustMatchDirective } from './_helpers/must-match.directive';
@@ -41,7 +42,7 @@ import { OrgChartService } from './services/orgchart.service';
     NgbModule,
     Ng2SearchPipeModule
   ],
-  providers: [UserProfileService, RegisterService,LoginService,AdminDashboardService,OrgChartService],
+  providers: [UserProfileService, RegisterService,LoginService,AdminDashboardService,OrgChartService,AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

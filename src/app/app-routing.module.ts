@@ -9,17 +9,18 @@ import { RegisterComponent } from './register/register.component';
 import { TempregComponent } from './tempreg/tempreg.component';
 import { ViewdetailsbyadminComponent } from './viewdetailsbyadmin/viewdetailsbyadmin.component';
 import { OrganisationchartComponent } from './organisationchart/organisationchart.component';
+import { AuthenticationGuard } from './authentication.guard';
 
 const routes: Routes = [
   { path: 'homepage', component: HomePageComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'admindashboard', component: AdmindashboardComponent},
+  { path: 'dashboard', component: DashboardComponent,canActivate:[AuthenticationGuard]},
+  { path: 'admindashboard', component: AdmindashboardComponent,canActivate:[AuthenticationGuard]},
   {path: 'tempreg', component: TempregComponent},
-  {path: 'viewdetailsbyadmin', component: ViewdetailsbyadminComponent},
+  {path: 'viewdetailsbyadmin', component: ViewdetailsbyadminComponent,canActivate:[AuthenticationGuard]},
   {path: 'logout', component: LogoutComponent},
-  {path: 'organisationchart', component: OrganisationchartComponent}
+  {path: 'organisationchart', component: OrganisationchartComponent,canActivate:[AuthenticationGuard]}
 ];
 
 @NgModule({

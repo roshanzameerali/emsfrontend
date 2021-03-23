@@ -53,6 +53,10 @@ export class ViewdetailsbyadminComponent implements OnInit {
      //this.refid = userprofile.refid; 
      this.employeedetails.Role = this.userprofile[0].Role;
      this.employeedetails.working_under= this.userprofile[0].working_under;
+     this.employeedetails.First_Name = this.userprofile[0].First_Name;
+     this.employeedetails.Last_Name = this.userprofile[0].Last_Name;
+     this.employeedetails.Email_id = this.userprofile[0].Email_id;
+     this.employeedetails.mobile_number = this.userprofile[0].mobile_number;
     //  this.selectedDepartmentName =  this.departmentandunitnames[0].Department_Name;
     //   this.selectedBusinessUnitName =  this.departmentandunitnames[0].Unit_Name;
 

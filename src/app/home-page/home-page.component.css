@@ -5,3 +5,13 @@
     border: 3px solid black;
     padding-left: 140px;
   }
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(88, 80, 80);
+    color: white;
+    text-align: center;
+  }
