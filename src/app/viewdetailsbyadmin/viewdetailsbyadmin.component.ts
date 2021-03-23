@@ -19,7 +19,8 @@ export class ViewdetailsbyadminComponent implements OnInit {
   AllBusinessUnitNames:any;
   selectedDepartmentName:any;
   selectedBusinessUnitName:any;
-
+  selectedWorkingUnder:any;
+  AllEmployeeIds:any;
   
   constructor(private userProfileService:UserProfileService) {
     this.employeedetails = new UserProfile();
@@ -39,7 +40,10 @@ export class ViewdetailsbyadminComponent implements OnInit {
       user=>{this.AllBusinessUnitNames=user,
         console.log(this.AllBusinessUnitNames);}
         ) 
-        
+    this.userProfileService.GetEmployeeIds(this.id).subscribe(
+      user=>{this.AllEmployeeIds=user,
+        console.log(this.AllEmployeeIds);}
+        ) 
         
    }
 
@@ -72,6 +76,7 @@ export class ViewdetailsbyadminComponent implements OnInit {
   {
     this.employeedetails.Department_id = this.selectedDepartmentName.Department_id;
     this.employeedetails.Unit_id = this.selectedBusinessUnitName.Unit_id; 
+    this.employeedetails.working_under = this.selectedWorkingUnder;
 
     console.log(this.employeedetails);
    this.userProfileService.EditDetailsByAdmin(this.id,this.employeedetails).subscribe(
