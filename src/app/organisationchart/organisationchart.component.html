@@ -1,40 +1,124 @@
-<p>organisationchart works!</p>
-You are working under: {{working_under}}
-<br><br>
-Employees Under {{working_under}}:
-<br><br>
 
-<div class="workingunderdetails" *ngFor = "let workingunderdetail of WorkingUnderDetails">
-     {{workingunderdetail.First_Name}} {{workingunderdetail.Last_Name}}
+ <div class="goabove" *ngIf="GoAboveDisplay()">
+
+  <button class="btn btn-link" routerLink="/dashboard">Back To Dashboard</button>
+
+  <h1>Immediate Manager for {{immediate_manager}}</h1>
+  <br><br>
+
+
+  <div class="workingunderdetails" *ngFor = "let workingunderdetail of WorkingUnderDetails">
+    <div class="card" style="width: 26rem;">
+              
+      <div class="card-body">
+        
+        <h4 class="card-text">Name: {{workingunderdetail.First_Name}} {{workingunderdetail.Last_Name}}</h4>
+      </div>
+      <h3>Contact Details:</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{workingunderdetail.Email_id}}</li>
+        <li class="list-group-item">{{workingunderdetail.mobile_number}}</li>
+        <li class="list-group-item">
+          <button class="btn btn-link" (click)="GoAboveChart(working_under)">Go above the Chart</button></li>
+      </ul>
+      
+    </div>
+  </div>
+
+  <h2>Employees Under {{working_under}}:</h2>
+  <br><br>
+
+  <div class="homepage">
+      <span class="peers" *ngFor = "let peer of peers">
+          <div style="display:inline-block;">
+              <div class="card" style="width: 26rem;">
+              
+                <div class="card-body">
+                  <h4 class="card-title">Id : {{peer.Employee_id}}</h4>
+                  <h4 class="card-text">Name: {{peer.First_Name}} {{peer.Last_Name}}</h4>
+                </div>
+                <h3>Contact Details:</h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{{peer.Email_id}}</li>
+                  <li class="list-group-item">{{peer.mobile_number}}</li>
+                </ul>
+              
+              </div>
+            </div>  
+          </span>
+  </div>
+
 </div>
 
+<div class="orgchart">
 
-<div class="homepage">
-     <div class="peers" *ngFor = "let peer of peers">
+    <button class="btn btn-link" routerLink="/dashboard">Back To Dashboard</button>
 
-          <table class="table">
-               <thead>
-                 <tr>
-                   <th scope="col">ID</th>
-                   <th scope="col">Name</th>
-                   <th scope="col">Email id</th>
-                   <th scope="col">Mobile Number</th>
-                 </tr>
-               </thead>
-               <tbody>
-                 <tr>
-                   <th scope="row">{{peer.Employee_id}}</th>
-                   <td>{{peer.First_Name}} {{peer.Last_Name}}</td>
-                   <td>{{peer.Email_id}}</td>
-                   <td>{{peer.mobile_number}}</td>
-                 </tr>
-                 
-               </tbody>
-             </table>
-         
-     </div>
+    <h1>Immediate Manager :  {{working_under}}</h1>
+    <br><br>
+
+
+    <div class="workingunderdetails" *ngFor = "let workingunderdetail of WorkingUnderDetails">
+      <div class="card" style="width: 26rem;">
+                
+        <div class="card-body">
+          
+          <h4 class="card-text">Name: {{workingunderdetail.First_Name}} {{workingunderdetail.Last_Name}}</h4>
+        </div>
+        <h3>Contact Details:</h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{workingunderdetail.Email_id}}</li>
+          <li class="list-group-item">{{workingunderdetail.mobile_number}}</li>
+          <li class="list-group-item">
+            <button class="btn btn-link" (click)="GoAboveChart(working_under)" >Go above the Chart</button></li>
+        </ul>
+        
+      </div>
+    </div>
+
+    <h2>Employees Under {{working_under}}:</h2>
+    <br><br>
+
+    <div class="homepage">
+        <span class="peers" *ngFor = "let peer of peers">
+            <div style="display:inline-block;">
+                <div class="card" style="width: 26rem;">
+                
+                  <div class="card-body">
+                    <h4 class="card-title">Id : {{peer.Employee_id}}</h4>
+                    <h4 class="card-text">Name: {{peer.First_Name}} {{peer.Last_Name}}</h4>
+                  </div>
+                  <h3>Contact Details:</h3>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{peer.Email_id}}</li>
+                    <li class="list-group-item">{{peer.mobile_number}}</li>
+                  </ul>
+                
+                </div>
+              </div>  
+            </span>
+    </div>
+
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel"></h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-<button class="btn btn-link" (click)="ViewDetails()">View Details</button>
 

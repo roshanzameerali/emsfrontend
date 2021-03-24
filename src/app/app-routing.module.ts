@@ -12,7 +12,7 @@ import { OrganisationchartComponent } from './organisationchart/organisationchar
 import { AuthenticationGuard } from './authentication.guard';
 
 const routes: Routes = [
-  { path: 'homepage', component: HomePageComponent},
+  { path: '', component: HomePageComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
   { path: 'dashboard', component: DashboardComponent,canActivate:[AuthenticationGuard]},
