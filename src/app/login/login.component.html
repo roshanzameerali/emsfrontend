@@ -36,11 +36,12 @@
       <div *ngIf="password.errors.pattern"> Enter Correct Password.</div>
     </div>
    </div>
+   <p>{{Role}}</p>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <button type="button" [disabled]="!signupForm.valid" class="btn btn-primary" (click)=" Login()">Login </button> 
 </form>
            
 </div>
-<p>{{Role}}</p>
+
 

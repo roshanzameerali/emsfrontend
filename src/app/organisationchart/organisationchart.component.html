@@ -19,7 +19,7 @@
         <li class="list-group-item">{{workingunderdetail.Email_id}}</li>
         <li class="list-group-item">{{workingunderdetail.mobile_number}}</li>
         <li class="list-group-item">
-          <button class="btn btn-link" (click)="GoAboveChart(working_under)">Go above the Chart</button></li>
+          <button class="btn btn-link" (click)="GoAboveChart(working_under)"></button></li>
       </ul>
       
     </div>
@@ -70,7 +70,7 @@
           <li class="list-group-item">{{workingunderdetail.Email_id}}</li>
           <li class="list-group-item">{{workingunderdetail.mobile_number}}</li>
           <li class="list-group-item">
-            <button class="btn btn-link" (click)="GoAboveChart(working_under)" >Go above the Chart</button></li>
+            <button class="btn btn-link" (click)="GoAboveChart(working_under)" >View above</button></li>
         </ul>
         
       </div>
@@ -79,12 +79,14 @@
     <h2>Employees Under {{working_under}}:</h2>
     <br><br>
 
-    <div class="homepage">
-        <span class="peers" *ngFor = "let peer of peers">
+    <span class="homepage">
+        <span class="peers" *ngFor = "let peer of peers" >
+          <span class="greyed-out">
             <div style="display:inline-block;">
                 <div class="card" style="width: 26rem;">
                 
-                  <div class="card-body">
+                  <div class="card-body" >
+                    
                     <h4 class="card-title">Id : {{peer.Employee_id}}</h4>
                     <h4 class="card-text">Name: {{peer.First_Name}} {{peer.Last_Name}}</h4>
                   </div>
@@ -95,9 +97,33 @@
                   </ul>
                 
                 </div>
-              </div>  
-            </span>
-    </div>
+              </div>
+            </span>  
+        </span>
+        <!-- <span class="notpeers" *ngFor = "let peer of peers" >
+          <span *ngIf ="peer.Employee_id == EmployeeIdForOrgChart" class="greyed-out">
+            <div style="display:inline-block;">
+                <div class="card" style="width: 26rem;">
+                
+                  <div class="card-body" >
+                    
+                    <h4 class="card-title">Id : {{peer.Employee_id}}</h4>
+                    <h4 class="card-text">Name: {{peer.First_Name}} {{peer.Last_Name}}</h4>
+                  </div>
+                  <h3>Contact Details:</h3>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{peer.Email_id}}</li>
+                    <li class="list-group-item">{{peer.mobile_number}}</li>
+                  </ul>
+                
+                </div>
+              </div>
+            </span>  
+        </span> -->
+      </span>
+&nbsp;
+   
+    
 
 </div>
 

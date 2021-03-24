@@ -20,6 +20,7 @@ export class OrganisationchartComponent implements OnInit {
   employeeadditionaldetails:any;
   userprofile:any;
   formGroup:boolean = false;
+  EmployeeIdForOrgChart:string = localStorage.getItem('EmployeeIdForOrgChart');
   constructor(private orgchartService:OrgChartService,private userProfileService:UserProfileService) {
     // this.userProfileService.getUserProfileFromApi(this.getPeers.Employee_id).subscribe(
     //   user=>{this.userprofile=user,
